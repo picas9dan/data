@@ -1,0 +1,1610 @@
+[
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-386",
+        "domain": "ontospecies",
+        "question": "What's the boiling point of C4H7Br2Cl2O4P?",
+        "query": {
+            "sparql": "SELECT ?BoilingPoint WHERE {\n  VALUES ?Species { \"C4H7Br2Cl2O4P\" }\n  ?Species os:hasBoilingPoint ?BoilingPoint .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-55",
+        "domain": "ontospecies",
+        "question": "What is the optical rotation of the chemical species whose number of hydrogen bond donors is = 0.0",
+        "query": {
+            "sparql": "SELECT ?OpticalRotation WHERE {\n  ?Species os:hasHydrogenBondDonorCount/os:value ?HydrogenBondDonorCountValue .\n  FILTER ( ?HydrogenBondDonorCountValue = 0.0 )\n  ?Species os:hasOpticalRotation ?OpticalRotation .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-10",
+        "domain": "ontocompchem",
+        "question": "What is the LUMO+2 energy of Ar calculated at the RB3LYP level across all basis set",
+        "query": {
+            "sparql": "SELECT ?LUMOPlus2Energy ?BasisSetLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"Ar\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  VALUES ?LevelOfTheoryLabel { \"RB3LYP\" }\n  ?MolecularComputation occ:hasResult ?LUMOPlus2Energy .\n  ?LUMOPlus2Energy a occ:LUMOPlus2Energy .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-476",
+        "domain": "ontospecies",
+        "question": "What are the chemical species whose exact mass is not less than 187.247187 and chemical classification is polycyclic compound",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasExactMass/os:value ?ExactMassValue .\n  FILTER ( ?ExactMassValue >= 187.247187 )\n  ?Species os:hasChemicalClass/rdfs:label \"polycyclic compound\" .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-180",
+        "domain": "ontocompchem",
+        "question": "I need to determine the Gibbs free energy, electronic energy, and SLUMO energy for Ar using the CC-pVQZ basis set.",
+        "query": {
+            "sparql": "SELECT ?TotalGibbsFreeEnergy ?SCFEnergy ?LUMOPlus1Energy WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"Ar\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n  VALUES ?BasisSetLabel { \"CC-pVQZ\" }\n  ?MolecularComputation occ:hasResult ?TotalGibbsFreeEnergy .\n  ?TotalGibbsFreeEnergy a occ:TotalGibbsFreeEnergy .\n  ?MolecularComputation occ:hasResult ?SCFEnergy .\n  ?SCFEnergy a occ:SCFEnergy .\n  ?MolecularComputation occ:hasResult ?LUMOPlus1Energy .\n  ?LUMOPlus1Energy a occ:LUMOPlus1Energy .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-653",
+        "domain": "ontospecies",
+        "question": "Can you tell me the melting point of a chemical species that has a solubility greater than 900?",
+        "query": {
+            "sparql": "SELECT ?MeltingPoint WHERE {\n  ?Species os:hasSolubility/os:value ?SolubilityValue .\n  FILTER ( ?SolubilityValue > 900 )\n  ?Species os:hasMeltingPoint ?MeltingPoint .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-982",
+        "domain": "ontospecies",
+        "question": "What is the dissociation constants and isotope atom count and polar surface area of 1,3-bis(chloranyl)propane",
+        "query": {
+            "sparql": "SELECT ?DissociationConstants ?IsotopeAtomCount ?PolarSurfaceArea WHERE {\n  VALUES ?Species { \"1,3-bis(chloranyl)propane\" }\n  ?Species os:hasDissociationConstants ?DissociationConstants .\n  ?Species os:hasIsotopeAtomCount ?IsotopeAtomCount .\n  ?Species os:hasPolarSurfaceArea ?PolarSurfaceArea .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-342",
+        "domain": "ontospecies",
+        "question": "For InChI=1S/C17H17ClO6/c1-8-5-9(19)6-12(23-4)17(8)16(20)13-10(21-2)7-11(22-3)14(18)15(13)24-17/h6-8H,5H2,1-4H3/t8-,17+/m1/s1 and 2-(<I>tert</I>-butylamino)-1-(3-chlorophenyl)propan-1-one, what is their hydrophobicity",
+        "query": {
+            "sparql": "SELECT ?Hydrophobicity WHERE {\n  VALUES ?Species { \"InChI=1S/C17H17ClO6/c1-8-5-9(19)6-12(23-4)17(8)16(20)13-10(21-2)7-11(22-3)14(18)15(13)24-17/h6-8H,5H2,1-4H3/t8-,17+/m1/s1\" \"2-(<I>tert</I>-butylamino)-1-(3-chlorophenyl)propan-1-one\" }\n  ?Species os:hasHydrophobicity ?Hydrophobicity .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-338",
+        "domain": "ontospecies",
+        "question": "I need information on the flash point, vapor pressure and empirical formula of C6H4Cl2O as well as CN1CCC2=C3C1CC4=C(C3=CC=C2)C(=C(C=C4)O)O.",
+        "query": {
+            "sparql": "SELECT ?VaporPressure ?EmpiricalFormula ?FlashPoint WHERE {\n  VALUES ?Species { \"C6H4Cl2O\" \"CN1CCC2=C3C1CC4=C(C3=CC=C2)C(=C(C=C4)O)O\" }\n  ?Species os:hasVaporPressure ?VaporPressure .\n  ?Species os:hasEmpiricalFormula ?EmpiricalFormula .\n  ?Species os:hasFlashPoint ?FlashPoint .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-157",
+        "domain": "ontocompchem",
+        "question": "I\u2019m searching for details on O's zero point energy and its frequencies calculated at the UB3LYP level. The basis set used is CC-pVDZ.",
+        "query": {
+            "sparql": "SELECT ?ZeroPointEnergy ?Frequencies WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"O\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  VALUES ?LevelOfTheoryLabel { \"UB3LYP\" }\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n  VALUES ?BasisSetLabel { \"CC-pVDZ\" }\n  ?MolecularComputation occ:hasResult ?ZeroPointEnergy .\n  ?ZeroPointEnergy a occ:ZeroPointEnergy .\n  ?MolecularComputation occ:hasResult ?Frequencies .\n  ?Frequencies a occ:Frequencies .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-700",
+        "domain": "ontospecies",
+        "question": "I need information on InChI=1S/C7H16O/c1-2-3-4-5-6-7-8/h8H,2-7H2,1H3's properties.",
+        "query": {
+            "sparql": "SELECT ?PropertyName WHERE {\n  VALUES ?Species { \"InChI=1S/C7H16O/c1-2-3-4-5-6-7-8/h8H,2-7H2,1H3\" }\n  ?Species ?hasPropertyName ?PropertyName .\n  ?PropertyName a/rdfs:subClassOf os:Property .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-129",
+        "domain": "ontocompchem",
+        "question": "I need the values for ground state energy, total energy, and frequencies for O2 using the UB3LYP theoretical model.",
+        "query": {
+            "sparql": "SELECT ?ZeroPointEnergy ?TotalEnergy ?Frequencies WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"O2\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  VALUES ?LevelOfTheoryLabel { \"UB3LYP\" }\n  ?MolecularComputation occ:hasResult ?ZeroPointEnergy .\n  ?ZeroPointEnergy a occ:ZeroPointEnergy .\n  ?MolecularComputation occ:hasResult ?TotalEnergy .\n  ?TotalEnergy a occ:TotalEnergy .\n  ?MolecularComputation occ:hasResult ?Frequencies .\n  ?Frequencies a occ:Frequencies .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-436",
+        "domain": "ontokin",
+        "question": "What is the chemical reaction that is involved in the mechanism found in https://doi.org/10.1016/j.combustflame.2007.10.024 and has product H2O and has product O and has reactant OH",
+        "query": {
+            "sparql": "SELECT ?Reaction WHERE {\n  ?Reaction ^okin:hasReaction ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"https://doi.org/10.1016/j.combustflame.2007.10.024\" .\n  ?Reaction ocape:hasProduct/skos:altLabel \"H2O\" .\n  ?Reaction ocape:hasProduct/skos:altLabel \"O\" .\n  ?Reaction ocape:hasReactant/skos:altLabel \"OH\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-608",
+        "domain": "ontospecies",
+        "question": "What are the different names for CC1=CC(=C(C=C1)C)N?",
+        "query": {
+            "sparql": "SELECT ?IdentifierName WHERE {\n  VALUES ?Species { \"CC1=CC(=C(C=C1)C)N\" }\n  ?Species ?hasIdentifierName ?IdentifierName .\n  ?IdentifierName a/rdfs:subClassOf os:Identifier .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-981",
+        "domain": "ontospecies",
+        "question": "What's the standard enthalpy of formation and charge for CC(C)NC1=NC(=NC(=N1)NC)SC?",
+        "query": {
+            "sparql": "SELECT ?StandardEnthalpyOfFormation ?Charge WHERE {\n  VALUES ?Species { \"CC(C)NC1=NC(=NC(=N1)NC)SC\" }\n  ?Species os:hasStandardEnthalpyOfFormation ?StandardEnthalpyOfFormation .\n  ?Species os:hasCharge ?Charge .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-124",
+        "domain": "ontokin",
+        "question": "Can you show me a chemical reaction that produces H2O?",
+        "query": {
+            "sparql": "SELECT ?Reaction WHERE {\n  ?Reaction ocape:hasProduct/skos:altLabel \"H2O\" .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-171",
+        "domain": "ontocompchem",
+        "question": "What is the total enthalpy of HO, specifying the level of theory at which the calculations are performed",
+        "query": {
+            "sparql": "SELECT ?TotalEnthalpy ?LevelOfTheoryLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"HO\" .\n  ?MolecularComputation occ:hasResult ?TotalEnthalpy .\n  ?TotalEnthalpy a occ:TotalEnthalpy .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-318",
+        "domain": "ontospecies",
+        "question": "What's the Chemical Entities of Biological Interest ID for C12H26O6P2S4?",
+        "query": {
+            "sparql": "SELECT ?ChebiID WHERE {\n  VALUES ?Species { \"C12H26O6P2S4\" }\n  ?Species os:hasChebiID ?ChebiID .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-300",
+        "domain": "ontokin",
+        "question": "What is the chemical reaction that has product HO2 and is involved in the mechanism found in https://doi.org/10.1016/j.combustflame.2007.10.024",
+        "query": {
+            "sparql": "SELECT ?Reaction WHERE {\n  ?Reaction ocape:hasProduct/skos:altLabel \"HO2\" .\n  ?Reaction ^okin:hasReaction ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"https://doi.org/10.1016/j.combustflame.2007.10.024\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-577",
+        "domain": "ontospecies",
+        "question": "I'm looking for phenylalanine derivative class chemicals that have a Henry's law constant of <= 4.6700691400000007e-08 and an atom chiral undef count >= -1.",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasHenrysLawConstant/os:value ?HenrysLawConstantValue .\n  FILTER ( ?HenrysLawConstantValue <= 4.6700691400000007e-08 )\n  ?Species os:hasChemicalClass/rdfs:label \"phenylalanine derivative\" .\n  ?Species os:hasAtomChiralUndefCount/os:value ?AtomChiralUndefCountValue .\n  FILTER ( ?AtomChiralUndefCountValue >= -1.0 )\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-10",
+        "domain": "ontospecies",
+        "question": "What are the chemical species whose chemical classification is molecular entity and exact mass is greater than or equal to 144 and hydrogen bond donor count is approximately 1.0 and use is Processing aids, not otherwise listed and role is chromatographic reagent and application is Processing aids not otherwise specified",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasChemicalClass/rdfs:label \"molecular entity\" .\n  ?Species os:hasExactMass/os:value ?ExactMassValue .\n  FILTER ( ?ExactMassValue >= 144 )\n  ?Species os:hasHydrogenBondDonorCount/os:value ?HydrogenBondDonorCountValue .\n  FILTER ( ?HydrogenBondDonorCountValue > 1.0*0.9 && ?HydrogenBondDonorCountValue < 1.0*1.1 )\n  ?Species os:hasUse/rdfs:label \"Processing aids, not otherwise listed\" .\n  ?Species os:hasUse/rdfs:label \"chromatographic reagent\" .\n  ?Species os:hasUse/rdfs:label \"Processing aids not otherwise specified\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-436",
+        "domain": "ontospecies",
+        "question": "What are the chemical species whose polar surface area is less than or equal to 77 and number of hydrogen bond donors is greater than -1.0 and < 1.0 and bond chiral undef count is outside the range (1, 2.2) and covalent unit count is inside the range (0, 2)",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasPolarSurfaceArea/os:value ?PolarSurfaceAreaValue .\n  FILTER ( ?PolarSurfaceAreaValue <= 77 )\n  ?Species os:hasHydrogenBondDonorCount/os:value ?HydrogenBondDonorCountValue .\n  FILTER ( ?HydrogenBondDonorCountValue > -1.0 && ?HydrogenBondDonorCountValue < 1.0 )\n  ?Species os:hasBondChiralUndefCount/os:value ?BondChiralUndefCountValue .\n  FILTER ( ?BondChiralUndefCountValue < 1 || ?BondChiralUndefCountValue > 2.2 )\n  ?Species os:hasCovalentUnitCount/os:value ?CovalentUnitCountValue .\n  FILTER ( ?CovalentUnitCountValue > 0 && ?CovalentUnitCountValue < 2 )\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-667",
+        "domain": "ontospecies",
+        "question": "Chemical class of C1=CC(=C(C(=C1Cl)C(=O)O)Cl)Cl?",
+        "query": {
+            "sparql": "SELECT ?ChemicalClassLabel WHERE {\n  VALUES ?Species { \"C1=CC(=C(C(=C1Cl)C(=O)O)Cl)Cl\" }\n  ?Species os:hasChemicalClass/rdfs:label ?ChemicalClassLabel .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-339",
+        "domain": "ontokin",
+        "question": "I need to understand the kinetic model associated with the chemical reaction mechanism detailed in this study: https://doi.org/10.1016/j.combustflame.2007.10.024.",
+        "query": {
+            "sparql": "SELECT ?KineticModel WHERE {\n  ?Reaction ^okin:hasReaction ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"https://doi.org/10.1016/j.combustflame.2007.10.024\" .\n  ?Reaction okin:hasKineticModel ?KineticModel .\n  ?KineticModel okin:definedIn ?Mechanism .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-79",
+        "domain": "ontospecies",
+        "question": "Need to find out the number of undefined atom stereocenters in InChI=1S/C3H10N2/c1-3(5)2-4/h3H,2,4-5H2,1H3 and its CID.",
+        "query": {
+            "sparql": "SELECT ?AtomChiralUndefCount ?CID WHERE {\n  VALUES ?Species { \"InChI=1S/C3H10N2/c1-3(5)2-4/h3H,2,4-5H2,1H3\" }\n  ?Species os:hasAtomChiralUndefCount ?AtomChiralUndefCount .\n  ?Species os:hasCID ?CID .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-32",
+        "domain": "ontospecies",
+        "question": "I'm looking for chemical species within the polyatomic entity class with bond stereocenter counts above -1 and below 1, also their atom chiral def count should be approximately 0.0.",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasChemicalClass/rdfs:label \"polyatomic entity\" .\n  ?Species os:hasBondChiralCount/os:value ?BondChiralCountValue .\n  FILTER ( ?BondChiralCountValue > -1 && ?BondChiralCountValue < 1 )\n  ?Species os:hasAtomChiralDefCount/os:value ?AtomChiralDefCountValue .\n  FILTER ( ?AtomChiralDefCountValue > -0.1 && ?AtomChiralDefCountValue < 0.1 )\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-506",
+        "domain": "ontospecies",
+        "question": "Find the International Chemical Identifier for a p-block molecular entity with a compound complexity around 8.0 and surface tension less than 0.030778000000000003",
+        "query": {
+            "sparql": "SELECT ?InChI WHERE {\n  ?Species os:hasChemicalClass/rdfs:label \"p-block molecular entity\" .\n  ?Species os:hasCompoundComplexity/os:value ?CompoundComplexityValue .\n  FILTER ( ?CompoundComplexityValue > 8.0*0.9 && ?CompoundComplexityValue < 8.0*1.1 )\n  ?Species os:hasSurfaceTension/os:value ?SurfaceTensionValue .\n  FILTER ( ?SurfaceTensionValue < 0.030778000000000003 )\n  ?Species os:hasInChI ?InChI .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-381",
+        "domain": "ontocompchem",
+        "question": "Using the CC-pVDZ basis set, what are the HOMO-1 energy, lowest unoccupied molecular orbital energy and zero point energy of HO?",
+        "query": {
+            "sparql": "SELECT ?HOMOMinus1Energy ?LUMOEnergy ?ZeroPointEnergy WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"HO\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n  VALUES ?BasisSetLabel { \"CC-pVDZ\" }\n  ?MolecularComputation occ:hasResult ?HOMOMinus1Energy .\n  ?HOMOMinus1Energy a occ:HOMOMinus1Energy .\n  ?MolecularComputation occ:hasResult ?LUMOEnergy .\n  ?LUMOEnergy a occ:LUMOEnergy .\n  ?MolecularComputation occ:hasResult ?ZeroPointEnergy .\n  ?ZeroPointEnergy a occ:ZeroPointEnergy .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-101",
+        "domain": "ontokin",
+        "question": "Can you tell me about a chemical reaction that results in the formation of H2O2?",
+        "query": {
+            "sparql": "SELECT ?Reaction WHERE {\n  ?Reaction ocape:hasProduct/skos:altLabel \"H2O2\" .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-267",
+        "domain": "ontocompchem",
+        "question": "What is the geometry of O calculated at the UB3LYP level of theory using the CC-pVTZ or CC-pVQZ or CC-pVDZ basis set",
+        "query": {
+            "sparql": "SELECT ?OptimizedGeometry WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"O\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  VALUES ?LevelOfTheoryLabel { \"UB3LYP\" }\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n  VALUES ?BasisSetLabel { \"CC-pVTZ\" \"CC-pVQZ\" \"CC-pVDZ\" }\n  ?MolecularComputation occ:hasResult ?OptimizedGeometry .\n  ?OptimizedGeometry a occ:OptimizedGeometry .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-421",
+        "domain": "ontokin",
+        "question": "How many times does a chemical reaction occur in https://doi.org/10.1002/kin.20603 with H and HE as products and HE as a reactant?",
+        "query": {
+            "sparql": "SELECT (COUNT(?Reaction) AS ?ReactionCount) WHERE {\n  ?Reaction ocape:hasProduct/skos:altLabel \"H\" .\n  ?Reaction ocape:hasReactant/skos:altLabel \"HE\" .\n  ?Reaction ^okin:hasReaction ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"https://doi.org/10.1002/kin.20603\" .\n  ?Reaction ocape:hasProduct/skos:altLabel \"HE\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-176",
+        "domain": "ontospecies",
+        "question": "Can you find the bond chiral undef count, ionization potential, and number of tautomers for a glycol ether chemical species used as a paint or coating additive not categorized elsewhere, with less than 1.0 defined atom stereocenter count?",
+        "query": {
+            "sparql": "SELECT ?BondChiralUndefCount ?IonizationPotential ?TautomerCount WHERE {\n  ?Species os:hasAtomChiralDefCount/os:value ?AtomChiralDefCountValue .\n  FILTER ( ?AtomChiralDefCountValue < 1.0 )\n  ?Species os:hasUse/rdfs:label \"Paint additives and coating additives not described by other categories\" .\n  ?Species os:hasChemicalClass/rdfs:label \"glycol ether\" .\n  ?Species os:hasBondChiralUndefCount ?BondChiralUndefCount .\n  ?Species os:hasIonizationPotential ?IonizationPotential .\n  ?Species os:hasTautomerCount ?TautomerCount .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-855",
+        "domain": "ontospecies",
+        "question": "I'm looking to find out the ionization potential and compound complexity for chemical species where their role is as a metabolite, their bond chiral undef count falls within -1 to 1, and they have one covalent unit only.",
+        "query": {
+            "sparql": "SELECT ?IonizationPotential ?CompoundComplexity WHERE {\n  ?Species os:hasUse/rdfs:label \"metabolite\" .\n  ?Species os:hasBondChiralUndefCount/os:value ?BondChiralUndefCountValue .\n  FILTER ( ?BondChiralUndefCountValue > -1.0 && ?BondChiralUndefCountValue < 1.0 )\n  ?Species os:hasCovalentUnitCount/os:value ?CovalentUnitCountValue .\n  FILTER ( ?CovalentUnitCountValue = 1.0 )\n  ?Species os:hasIonizationPotential ?IonizationPotential .\n  ?Species os:hasCompoundComplexity ?CompoundComplexity .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-366",
+        "domain": "ontokin",
+        "question": "I'm looking to understand the mechanism of reactions that encompass O2 + H = O + OH and O + H + M = OH + M.",
+        "query": {
+            "sparql": "SELECT ?Mechanism WHERE {\n  ?Mechanism okin:hasReaction/okin:hasEquation \"O2 + H = O + OH\" .\n  ?Mechanism okin:hasReaction/okin:hasEquation \"O + H + M = OH + M\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-642",
+        "domain": "ontospecies",
+        "question": "I want to know the quantity of hydrogen bond donors in both InChI=1S/C6H8N2O2S/c7-5-1-3-6(4-2-5)11(8,9)10/h1-4H,7H2,(H2,8,9,10) and [1-methyl-1-(1-methyl-1-phenyl-ethyl)peroxy-ethyl]benzene.",
+        "query": {
+            "sparql": "SELECT ?HydrogenBondDonorCount WHERE {\n  VALUES ?Species { \"InChI=1S/C6H8N2O2S/c7-5-1-3-6(4-2-5)11(8,9)10/h1-4H,7H2,(H2,8,9,10)\" \"[1-methyl-1-(1-methyl-1-phenyl-ethyl)peroxy-ethyl]benzene\" }\n  ?Species os:hasHydrogenBondDonorCount ?HydrogenBondDonorCount .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-72",
+        "domain": "ontospecies",
+        "question": "I'm looking for chemical species with up to 2 covalent units, which fall into the Other Uses category.",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasCovalentUnitCount/os:value ?CovalentUnitCountValue .\n  FILTER ( ?CovalentUnitCountValue <= 2 )\n  ?Species os:hasChemicalClass/rdfs:label \"Other Uses\" .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-162",
+        "domain": "ontokin",
+        "question": "Number of chemical reactions with H2 as product and H as reactant in the mechanism mentioned on www.osti.gov/servlets/purl/90098-26Ev73/webviewable/",
+        "query": {
+            "sparql": "SELECT (COUNT(?Reaction) AS ?ReactionCount) WHERE {\n  ?Reaction ocape:hasProduct/skos:altLabel \"H2\" .\n  ?Reaction ocape:hasReactant/skos:altLabel \"H\" .\n  ?Reaction ^okin:hasReaction ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"www.osti.gov/servlets/purl/90098-26Ev73/webviewable/\" .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-348",
+        "domain": "ontokin",
+        "question": "I'm looking for the kinetic model of a chemical reaction HO2 + H <=> O2 + H2 in a mechanism from this URL: www.osti.gov/servlets/purl/90098-26Ev73/webviewable/.",
+        "query": {
+            "sparql": "SELECT ?KineticModel WHERE {\n  ?Reaction okin:hasEquation \"HO2 + H <=> O2 + H2\" .\n  ?Reaction ^okin:hasReaction ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"www.osti.gov/servlets/purl/90098-26Ev73/webviewable/\" .\n  ?Reaction okin:hasKineticModel ?KineticModel .\n  ?KineticModel okin:definedIn ?Mechanism .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-222",
+        "domain": "ontocompchem",
+        "question": "Can you tell me about the calculated electronic energy and frequencies of N2 when using every basis set at RB3LYP level of theory?",
+        "query": {
+            "sparql": "SELECT ?Frequencies ?SCFEnergy ?BasisSetLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"N2\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  VALUES ?LevelOfTheoryLabel { \"RB3LYP\" }\n  ?MolecularComputation occ:hasResult ?Frequencies .\n  ?Frequencies a occ:Frequencies .\n  ?MolecularComputation occ:hasResult ?SCFEnergy .\n  ?SCFEnergy a occ:SCFEnergy .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-115",
+        "domain": "ontokin",
+        "question": "Can you show me the chemical species that is shown in the reaction mechanism of this study? https://doi.org/10.1002/kin.20026",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species okin:belongsToPhase/^okin:hasGasPhase ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"https://doi.org/10.1002/kin.20026\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-406",
+        "domain": "ontospecies",
+        "question": "Need to find out how viscous 2-[2-[4-[(4-chlorophenyl)-phenylmethyl]piperazin-1-yl]ethoxy]ethanol and InChI=1S/C2H5NO2/c1-2-5-3-4/h2H2,1H3 are.",
+        "query": {
+            "sparql": "SELECT ?Viscosity WHERE {\n  VALUES ?Species { \"2-[2-[4-[(4-chlorophenyl)-phenylmethyl]piperazin-1-yl]ethoxy]ethanol\" \"InChI=1S/C2H5NO2/c1-2-5-3-4/h2H2,1H3\" }\n  ?Species os:hasViscosity ?Viscosity .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-154",
+        "domain": "ontospecies",
+        "question": "I need information on the different characteristics of N,N-dimethyl-1-phenothiazin-10-ylpropan-2-amine, InChI=1S/C3H6O/c1-2-3-4/h3H,2H2,1H3, and InChI=1S/C4H10O2/c1-2-4(6)3-5/h4-6H,2-3H2,1H3.",
+        "query": {
+            "sparql": "SELECT ?PropertyName WHERE {\n  VALUES ?Species { \"N,N-dimethyl-1-phenothiazin-10-ylpropan-2-amine\" \"InChI=1S/C3H6O/c1-2-3-4/h3H,2H2,1H3\" \"InChI=1S/C4H10O2/c1-2-4(6)3-5/h4-6H,2-3H2,1H3\" }\n  ?Species ?hasPropertyName ?PropertyName .\n  ?PropertyName a/rdfs:subClassOf os:Property .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-224",
+        "domain": "ontospecies",
+        "question": "What is the hydrophobicity and empirical formula of C11H14O2 and succinic acid dimethyl ester",
+        "query": {
+            "sparql": "SELECT ?Hydrophobicity ?EmpiricalFormula WHERE {\n  VALUES ?Species { \"C11H14O2\" \"succinic acid dimethyl ester\" }\n  ?Species os:hasHydrophobicity ?Hydrophobicity .\n  ?Species os:hasEmpiricalFormula ?EmpiricalFormula .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-432",
+        "domain": "ontocompchem",
+        "question": "Rotational constants for N2 using CC-pVTZ basis set, what are they? Also, what's the level of theory in the calculations?",
+        "query": {
+            "sparql": "SELECT ?RotationalConstants ?LevelOfTheoryLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"N2\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n  VALUES ?BasisSetLabel { \"CC-pVTZ\" }\n  ?MolecularComputation occ:hasResult ?RotationalConstants .\n  ?RotationalConstants a occ:RotationalConstants .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-174",
+        "domain": "ontokin",
+        "question": "Can you find the kinetic model for a chemical reaction using H to produce HO2 in the mechanism described here www.osti.gov/servlets/purl/90098-26Ev73/webviewable/?",
+        "query": {
+            "sparql": "SELECT ?KineticModel WHERE {\n  ?Reaction ocape:hasProduct/skos:altLabel \"HO2\" .\n  ?Reaction ocape:hasReactant/skos:altLabel \"H\" .\n  ?Reaction ^okin:hasReaction ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"www.osti.gov/servlets/purl/90098-26Ev73/webviewable/\" .\n  ?Reaction okin:hasKineticModel ?KineticModel .\n  ?KineticModel okin:definedIn ?Mechanism .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-269",
+        "domain": "ontocompchem",
+        "question": "What's the value for LUMO+1 energy of O2 if I calculate it with CC-pVDZ basis set in all theoretical levels?",
+        "query": {
+            "sparql": "SELECT ?LUMOPlus1Energy ?LevelOfTheoryLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"O2\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n  VALUES ?BasisSetLabel { \"CC-pVDZ\" }\n  ?MolecularComputation occ:hasResult ?LUMOPlus1Energy .\n  ?LUMOPlus1Energy a occ:LUMOPlus1Energy .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-715",
+        "domain": "ontospecies",
+        "question": "What is the ionization potential and IUPAC International Chemical Identifier and boiling point of C10H15O3PS2",
+        "query": {
+            "sparql": "SELECT ?IonizationPotential ?InChI ?BoilingPoint WHERE {\n  VALUES ?Species { \"C10H15O3PS2\" }\n  ?Species os:hasIonizationPotential ?IonizationPotential .\n  ?Species os:hasInChI ?InChI .\n  ?Species os:hasBoilingPoint ?BoilingPoint .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-71",
+        "domain": "ontocompchem",
+        "question": "What is the NHOMO energy of HO calculated at the UB3LYP level using the CC-pVTZ basis set",
+        "query": {
+            "sparql": "SELECT ?HOMOMinus1Energy WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"HO\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  VALUES ?LevelOfTheoryLabel { \"UB3LYP\" }\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n  VALUES ?BasisSetLabel { \"CC-pVTZ\" }\n  ?MolecularComputation occ:hasResult ?HOMOMinus1Energy .\n  ?HOMOMinus1Energy a occ:HOMOMinus1Energy .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-84",
+        "domain": "ontocompchem",
+        "question": "I'm searching for the energy level of H at theoretical UB3LYP level over all basis sets.",
+        "query": {
+            "sparql": "SELECT ?SCFEnergy ?BasisSetLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"H\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  VALUES ?LevelOfTheoryLabel { \"UB3LYP\" }\n  ?MolecularComputation occ:hasResult ?SCFEnergy .\n  ?SCFEnergy a occ:SCFEnergy .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-628",
+        "domain": "ontospecies",
+        "question": "Can you tell me the heat of vaporization for CCC1=C(C(=CC=C1)CC)N(COC)C(=O)CCl?",
+        "query": {
+            "sparql": "SELECT ?HeatOfVaporization WHERE {\n  VALUES ?Species { \"CCC1=C(C(=CC=C1)CC)N(COC)C(=O)CCl\" }\n  ?Species os:hasHeatOfVaporization ?HeatOfVaporization .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-6",
+        "domain": "ontospecies",
+        "question": "Can you show me the various properties of a chemical species that acts as an agrochemical?",
+        "query": {
+            "sparql": "SELECT ?PropertyName WHERE {\n  ?Species os:hasUse/rdfs:label \"agrochemical\" .\n  ?Species ?hasPropertyName ?PropertyName .\n  ?PropertyName a/rdfs:subClassOf os:Property .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-387",
+        "domain": "ontospecies",
+        "question": "Looking for organic molecules with a solubility of approximately 0.0003779 and a melting point close to 187.05.",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasSolubility/os:value ?SolubilityValue .\n  FILTER ( ?SolubilityValue > 0.0003779*0.9 && ?SolubilityValue < 0.0003779*1.1 )\n  ?Species os:hasMeltingPoint/os:value ?MeltingPointValue .\n  FILTER ( ?MeltingPointValue > 187.05*0.9 && ?MeltingPointValue < 187.05*1.1 )\n  ?Species os:hasChemicalClass/rdfs:label \"organic molecule\" .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-123",
+        "domain": "ontokin",
+        "question": "What is the reaction mechanism that invovles H2O2 and invovles HO2 and invovles O",
+        "query": {
+            "sparql": "SELECT ?Mechanism WHERE {\n  ?Mechanism okin:hasGasPhase/^okin:belongsToPhase/skos:altLabel \"H2O2\" .\n  ?Mechanism okin:hasGasPhase/^okin:belongsToPhase/skos:altLabel \"HO2\" .\n  ?Mechanism okin:hasGasPhase/^okin:belongsToPhase/skos:altLabel \"O\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-565",
+        "domain": "ontospecies",
+        "question": "I'm looking for information on C15H26O - specifically its molecular formula, XLogP3, and number of hydrogen bond acceptors.",
+        "query": {
+            "sparql": "SELECT ?MolecularFormula ?XLogP3 ?HydrogenBondAcceptorCount WHERE {\n  VALUES ?Species { \"C15H26O\" }\n  ?Species os:hasMolecularFormula ?MolecularFormula .\n  ?Species os:hasXLogP3 ?XLogP3 .\n  ?Species os:hasHydrogenBondAcceptorCount ?HydrogenBondAcceptorCount .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-957",
+        "domain": "ontospecies",
+        "question": "For CNC(=O)OC1=CC=CC2=CC=CC=C21, what is its SMILES",
+        "query": {
+            "sparql": "SELECT ?SMILES WHERE {\n  VALUES ?Species { \"CNC(=O)OC1=CC=CC2=CC=CC=C21\" }\n  ?Species os:hasSMILES ?SMILES .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-477",
+        "domain": "ontocompchem",
+        "question": "Searching for HOMO-2 energy and LUMO energy of O in every level of theory.",
+        "query": {
+            "sparql": "SELECT ?HOMOMinus2Energy ?LUMOEnergy ?LevelOfTheoryLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"O\" .\n  ?MolecularComputation occ:hasResult ?HOMOMinus2Energy .\n  ?HOMOMinus2Energy a occ:HOMOMinus2Energy .\n  ?MolecularComputation occ:hasResult ?LUMOEnergy .\n  ?LUMOEnergy a occ:LUMOEnergy .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-951",
+        "domain": "ontospecies",
+        "question": "What is the hydrophobicity of 2-methylnaphthalene",
+        "query": {
+            "sparql": "SELECT ?Hydrophobicity WHERE {\n  VALUES ?Species { \"2-methylnaphthalene\" }\n  ?Species os:hasHydrophobicity ?Hydrophobicity .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-35",
+        "domain": "ontokin",
+        "question": "I'm looking for the kinetic model of the reaction where H2O2 + O <=> HO2 + OH.",
+        "query": {
+            "sparql": "SELECT ?KineticModel WHERE {\n  ?Reaction okin:hasEquation \"H2O2 + O <=> HO2 + OH\" .\n  ?Reaction okin:hasKineticModel ?KineticModel .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-232",
+        "domain": "ontocompchem",
+        "question": "Checking the frequencies for N2 and I'm interested in the theoretical level applied for these calculations.",
+        "query": {
+            "sparql": "SELECT ?Frequencies ?LevelOfTheoryLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"N2\" .\n  ?MolecularComputation occ:hasResult ?Frequencies .\n  ?Frequencies a occ:Frequencies .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-888",
+        "domain": "ontospecies",
+        "question": "Can you find the values of polar surface area and sublimation enthalpy for a molecule which is part of these classes: organonitrogen heterocyclic compound, organic hydroxy compound, p-block molecular entity, and is also anorganic molecular entity and atertiary amino compound? It should have between 1 to 2.2 hydrogen bond acceptors.",
+        "query": {
+            "sparql": "SELECT ?PolarSurfaceArea ?EnthalpyOfSublimation WHERE {\n  ?Species os:hasChemicalClass/rdfs:label \"organonitrogen heterocyclic compound\" .\n  ?Species os:hasChemicalClass/rdfs:label \"organic hydroxy compound\" .\n  ?Species os:hasChemicalClass/rdfs:label \"p-block molecular entity\" .\n  ?Species os:hasChemicalClass/rdfs:label \"organic molecular entity\" .\n  ?Species os:hasHydrogenBondAcceptorCount/os:value ?HydrogenBondAcceptorCountValue .\n  FILTER ( ?HydrogenBondAcceptorCountValue > 1 && ?HydrogenBondAcceptorCountValue < 2.2 )\n  ?Species os:hasChemicalClass/rdfs:label \"tertiary amino compound\" .\n  ?Species os:hasPolarSurfaceArea ?PolarSurfaceArea .\n  ?Species os:hasEnthalpyOfSublimation ?EnthalpyOfSublimation .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-37",
+        "domain": "ontokin",
+        "question": "What is the chemical reaction that has product O and is involved in the mechanism found in www.osti.gov/servlets/purl/90098-26Ev73/webviewable/",
+        "query": {
+            "sparql": "SELECT ?Reaction WHERE {\n  ?Reaction ocape:hasProduct/skos:altLabel \"O\" .\n  ?Reaction ^okin:hasReaction ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"www.osti.gov/servlets/purl/90098-26Ev73/webviewable/\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-659",
+        "domain": "ontospecies",
+        "question": "Need information on chemical entities with solubility approximately equal to 1.4 and their bond chiral undef count doesn't exceed 1.0?",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasSolubility/os:value ?SolubilityValue .\n  FILTER ( ?SolubilityValue > 1.4*0.9 && ?SolubilityValue < 1.4*1.1 )\n  ?Species os:hasBondChiralUndefCount/os:value ?BondChiralUndefCountValue .\n  FILTER ( ?BondChiralUndefCountValue <= 1.0 )\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-40",
+        "domain": "ontokin",
+        "question": "Looking for the thermodynamic and transport models for H in every reaction mechanism it is involved in.",
+        "query": {
+            "sparql": "SELECT ?TransportModel ?ThermoModel ?Mechanism WHERE {\n  ?Species skos:altLabel \"H\" .\n  ?Species okin:hasTransportModel ?TransportModel .\n  ?TransportModel okin:definedIn ?Mechanism .\n  ?Species okin:hasThermoModel ?ThermoModel .\n  ?ThermoModel okin:definedIn ?Mechanism .\n  ?Species okin:belongsToPhase/^okin:hasGasPhase ?Mechanism .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-130",
+        "domain": "ontocompchem",
+        "question": "Can you find the energy of LUMO+1 for Ar?",
+        "query": {
+            "sparql": "SELECT ?LUMOPlus1Energy WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"Ar\" .\n  ?MolecularComputation occ:hasResult ?LUMOPlus1Energy .\n  ?LUMOPlus1Energy a occ:LUMOPlus1Energy .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-474",
+        "domain": "ontocompchem",
+        "question": "Searching for the total Gibbs free energy value of H.",
+        "query": {
+            "sparql": "SELECT ?TotalGibbsFreeEnergy WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"H\" .\n  ?MolecularComputation occ:hasResult ?TotalGibbsFreeEnergy .\n  ?TotalGibbsFreeEnergy a occ:TotalGibbsFreeEnergy .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-217",
+        "domain": "ontokin",
+        "question": "What's the reaction where OH is the reactant and H2O2 is the product?",
+        "query": {
+            "sparql": "SELECT ?Reaction WHERE {\n  ?Reaction ocape:hasProduct/skos:altLabel \"H2O2\" .\n  ?Reaction ocape:hasReactant/skos:altLabel \"OH\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-639",
+        "domain": "ontospecies",
+        "question": "What are the sublimation enthalpy, dissociation constants, and solubility of C5H10O?",
+        "query": {
+            "sparql": "SELECT ?EnthalpyOfSublimation ?DissociationConstants ?Solubility WHERE {\n  VALUES ?Species { \"C5H10O\" }\n  ?Species os:hasEnthalpyOfSublimation ?EnthalpyOfSublimation .\n  ?Species os:hasDissociationConstants ?DissociationConstants .\n  ?Species os:hasSolubility ?Solubility .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-446",
+        "domain": "ontokin",
+        "question": "What is the kinetic model of the chemical reaction N2 + H + H <=> N2 + H2",
+        "query": {
+            "sparql": "SELECT ?KineticModel WHERE {\n  ?Reaction okin:hasEquation \"N2 + H + H <=> N2 + H2\" .\n  ?Reaction okin:hasKineticModel ?KineticModel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-625",
+        "domain": "ontospecies",
+        "question": "I need to find out about any Glycol Ethers (E Series) chemicals used in Auto Products that have less than or exactly 11 rotatable bonds and a minimum of two hydrogen bond acceptors.",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasRotatableBondCount/os:value ?RotatableBondCountValue .\n  FILTER ( ?RotatableBondCountValue <= 11.0 )\n  ?Species os:hasChemicalClass/rdfs:label \"Glycol Ethers (E Series)\" .\n  ?Species os:hasHydrogenBondAcceptorCount/os:value ?HydrogenBondAcceptorCountValue .\n  FILTER ( ?HydrogenBondAcceptorCountValue >= 2 )\n  ?Species os:hasUse/rdfs:label \"Auto Products\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-631",
+        "domain": "ontospecies",
+        "question": "Search for chemical species classified as organic molecules with an approximate polar surface area of 90.6.",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasPolarSurfaceArea/os:value ?PolarSurfaceAreaValue .\n  FILTER ( ?PolarSurfaceAreaValue > 90.6*0.9 && ?PolarSurfaceAreaValue < 90.6*1.1 )\n  ?Species os:hasChemicalClass/rdfs:label \"organic molecule\" .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-409",
+        "domain": "ontocompchem",
+        "question": "Can anyone explain the calculated rotational constants of O2 using the UB3LYP level with the CC-pVQZ basis set?",
+        "query": {
+            "sparql": "SELECT ?RotationalConstants WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"O2\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  VALUES ?LevelOfTheoryLabel { \"UB3LYP\" }\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n  VALUES ?BasisSetLabel { \"CC-pVQZ\" }\n  ?MolecularComputation occ:hasResult ?RotationalConstants .\n  ?RotationalConstants a occ:RotationalConstants .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-310",
+        "domain": "ontocompchem",
+        "question": "Can I find the energy of the next-to-top occupied molecular orbital for Ar in any basis set?",
+        "query": {
+            "sparql": "SELECT ?HOMOMinus1Energy ?BasisSetLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"Ar\" .\n  ?MolecularComputation occ:hasResult ?HOMOMinus1Energy .\n  ?HOMOMinus1Energy a occ:HOMOMinus1Energy .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-352",
+        "domain": "ontospecies",
+        "question": "Looking for main group molecular entity chemicals with bond chiral def count under 1, viscosity approximately 0.656, flash point over 264 and isotope atom count of exactly 0.0",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasBondChiralDefCount/os:value ?BondChiralDefCountValue .\n  FILTER ( ?BondChiralDefCountValue < 1 )\n  ?Species os:hasViscosity/os:value ?ViscosityValue .\n  FILTER ( ?ViscosityValue > 0.656*0.9 && ?ViscosityValue < 0.656*1.1 )\n  ?Species os:hasFlashPoint/os:value ?FlashPointValue .\n  FILTER ( ?FlashPointValue >= 264 )\n  ?Species os:hasIsotopeAtomCount/os:value ?IsotopeAtomCountValue .\n  FILTER ( ?IsotopeAtomCountValue = 0.0 )\n  ?Species os:hasChemicalClass/rdfs:label \"main group molecular entity\" .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-49",
+        "domain": "ontocompchem",
+        "question": "What is the total Gibbs free energy of O2 calculated at the UB3LYP level, specifying the basis set at which the calculations are performed",
+        "query": {
+            "sparql": "SELECT ?TotalGibbsFreeEnergy ?BasisSetLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"O2\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  VALUES ?LevelOfTheoryLabel { \"UB3LYP\" }\n  ?MolecularComputation occ:hasResult ?TotalGibbsFreeEnergy .\n  ?TotalGibbsFreeEnergy a occ:TotalGibbsFreeEnergy .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-192",
+        "domain": "ontocompchem",
+        "question": "Can I find out the NHOMO energy value for N2 using either CC-pVQZ or CC-pVTZ basis sets? Need info about the theory level for the calculation.",
+        "query": {
+            "sparql": "SELECT ?HOMOMinus1Energy ?LevelOfTheoryLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"N2\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n  VALUES ?BasisSetLabel { \"CC-pVQZ\" \"CC-pVTZ\" }\n  ?MolecularComputation occ:hasResult ?HOMOMinus1Energy .\n  ?HOMOMinus1Energy a occ:HOMOMinus1Energy .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-524",
+        "domain": "ontospecies",
+        "question": "What is the density of InChI=1S/C9H18O/c1-7(2)5-9(10)6-8(3)4/h7-8H,5-6H2,1-4H3",
+        "query": {
+            "sparql": "SELECT ?Density WHERE {\n  VALUES ?Species { \"InChI=1S/C9H18O/c1-7(2)5-9(10)6-8(3)4/h7-8H,5-6H2,1-4H3\" }\n  ?Species os:hasDensity ?Density .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-416",
+        "domain": "ontokin",
+        "question": "What is the kinetic model of the chemical reaction that has reactant O and is involved in the mechanism found in https://doi.org/10.1002/kin.20603 and has product OH and has reactant H",
+        "query": {
+            "sparql": "SELECT ?KineticModel WHERE {\n  ?Reaction ocape:hasReactant/skos:altLabel \"O\" .\n  ?Reaction ^okin:hasReaction ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"https://doi.org/10.1002/kin.20603\" .\n  ?Reaction ocape:hasProduct/skos:altLabel \"OH\" .\n  ?Reaction ocape:hasReactant/skos:altLabel \"H\" .\n  ?Reaction okin:hasKineticModel ?KineticModel .\n  ?KineticModel okin:definedIn ?Mechanism .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-409",
+        "domain": "ontokin",
+        "question": "For the chemical reaction that has product H2O and has reactant H2 and is involved in the mechanism found in https://doi.org/10.1016/j.combustflame.2007.10.024 and has reactant OH, what is its kinetic model",
+        "query": {
+            "sparql": "SELECT ?KineticModel WHERE {\n  ?Reaction ocape:hasProduct/skos:altLabel \"H2O\" .\n  ?Reaction ocape:hasReactant/skos:altLabel \"H2\" .\n  ?Reaction ^okin:hasReaction ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"https://doi.org/10.1016/j.combustflame.2007.10.024\" .\n  ?Reaction ocape:hasReactant/skos:altLabel \"OH\" .\n  ?Reaction okin:hasKineticModel ?KineticModel .\n  ?KineticModel okin:definedIn ?Mechanism .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-380",
+        "domain": "ontospecies",
+        "question": "What's the specific optical rotation of C2H3BrO2?",
+        "query": {
+            "sparql": "SELECT ?OpticalRotation WHERE {\n  VALUES ?Species { \"C2H3BrO2\" }\n  ?Species os:hasOpticalRotation ?OpticalRotation .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-410",
+        "domain": "ontocompchem",
+        "question": "What is the HOMO energy of Ar calculated using the CC-pVDZ basis set, specifying the level of theory at which the calculations are performed",
+        "query": {
+            "sparql": "SELECT ?HOMOEnergy ?LevelOfTheoryLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"Ar\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n  VALUES ?BasisSetLabel { \"CC-pVDZ\" }\n  ?MolecularComputation occ:hasResult ?HOMOEnergy .\n  ?HOMOEnergy a occ:HOMOEnergy .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-318",
+        "domain": "ontokin",
+        "question": "Count of chemical reactions in the mechanism from www.osti.gov/servlets/purl/90098-26Ev73/webviewable/?",
+        "query": {
+            "sparql": "SELECT (COUNT(?Reaction) AS ?ReactionCount) WHERE {\n  ?Reaction ^okin:hasReaction ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"www.osti.gov/servlets/purl/90098-26Ev73/webviewable/\" .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-363",
+        "domain": "ontocompchem",
+        "question": "What is the NHOMO energy of H2",
+        "query": {
+            "sparql": "SELECT ?HOMOMinus1Energy WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"H2\" .\n  ?MolecularComputation occ:hasResult ?HOMOMinus1Energy .\n  ?HOMOMinus1Energy a occ:HOMOMinus1Energy .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-28",
+        "domain": "ontocompchem",
+        "question": "What is the SCF energy and HOMO-2 energy of H2O calculated at the RB3LYP level using the CC-pVQZ or CC-pVTZ basis set",
+        "query": {
+            "sparql": "SELECT ?SCFEnergy ?HOMOMinus2Energy WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"H2O\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  VALUES ?LevelOfTheoryLabel { \"RB3LYP\" }\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n  VALUES ?BasisSetLabel { \"CC-pVQZ\" \"CC-pVTZ\" }\n  ?MolecularComputation occ:hasResult ?SCFEnergy .\n  ?SCFEnergy a occ:SCFEnergy .\n  ?MolecularComputation occ:hasResult ?HOMOMinus2Energy .\n  ?HOMOMinus2Energy a occ:HOMOMinus2Energy .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-233",
+        "domain": "ontokin",
+        "question": "How many chemical reaction that has reactant H and is involved in the mechanism found in https://doi.org/10.1002/kin.20603",
+        "query": {
+            "sparql": "SELECT (COUNT(?Reaction) AS ?ReactionCount) WHERE {\n  ?Reaction ocape:hasReactant/skos:altLabel \"H\" .\n  ?Reaction ^okin:hasReaction ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"https://doi.org/10.1002/kin.20603\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-575",
+        "domain": "ontospecies",
+        "question": "For InChI=1S/C5H11NO2S/c1-5(2,9)3(6)4(7)8/h3,9H,6H2,1-2H3,(H,7,8)/t3-/m0/s1, what is its role",
+        "query": {
+            "sparql": "SELECT ?UseLabel WHERE {\n  VALUES ?Species { \"InChI=1S/C5H11NO2S/c1-5(2,9)3(6)4(7)8/h3,9H,6H2,1-2H3,(H,7,8)/t3-/m0/s1\" }\n  ?Species os:hasUse/rdfs:label ?UseLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-58",
+        "domain": "ontospecies",
+        "question": "What are the chemical species whose rotatable bond count is less than 3 and solubility is < 25 or > 31.35",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasRotatableBondCount/os:value ?RotatableBondCountValue .\n  FILTER ( ?RotatableBondCountValue < 3 )\n  ?Species os:hasSolubility/os:value ?SolubilityValue .\n  FILTER ( ?SolubilityValue < 25 || ?SolubilityValue > 31.35 )\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-27",
+        "domain": "ontocompchem",
+        "question": "Searching for info on the energy of the second lowest unoccupied molecular orbital, O geometry using the UB3LYP level. What basis set was used for these calculations?",
+        "query": {
+            "sparql": "SELECT ?LUMOPlus1Energy ?OptimizedGeometry ?BasisSetLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"O\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  VALUES ?LevelOfTheoryLabel { \"UB3LYP\" }\n  ?MolecularComputation occ:hasResult ?LUMOPlus1Energy .\n  ?LUMOPlus1Energy a occ:LUMOPlus1Energy .\n  ?MolecularComputation occ:hasResult ?OptimizedGeometry .\n  ?OptimizedGeometry a occ:OptimizedGeometry .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-505",
+        "domain": "ontokin",
+        "question": "How many chemical species that appears in the reaction mechanism found in https://doi.org/10.1016/j.combustflame.2007.10.024",
+        "query": {
+            "sparql": "SELECT (COUNT(?Species) AS ?SpeciesCount) WHERE {\n  ?Species okin:belongsToPhase/^okin:hasGasPhase ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"https://doi.org/10.1016/j.combustflame.2007.10.024\" .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-182",
+        "domain": "ontocompchem",
+        "question": "Can you tell me the SCF energy of N2 as calculated from RB3LYP level in accordance with a selected basis set?",
+        "query": {
+            "sparql": "SELECT ?SCFEnergy ?BasisSetLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"N2\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  VALUES ?LevelOfTheoryLabel { \"RB3LYP\" }\n  ?MolecularComputation occ:hasResult ?SCFEnergy .\n  ?SCFEnergy a occ:SCFEnergy .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-266",
+        "domain": "ontospecies",
+        "question": "Identify all chemical species classified as nitrogen molecular entity, having approximately 496.15 as their melting point and their Henry's Law constant is equal to 7.74123e-11?",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasHenrysLawConstant/os:value ?HenrysLawConstantValue .\n  FILTER ( ?HenrysLawConstantValue = 7.74123e-11 )\n  ?Species os:hasChemicalClass/rdfs:label \"nitrogen molecular entity\" .\n  ?Species os:hasMeltingPoint/os:value ?MeltingPointValue .\n  FILTER ( ?MeltingPointValue > 496.15*0.9 && ?MeltingPointValue < 496.15*1.1 )\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-435",
+        "domain": "ontospecies",
+        "question": "What chemical species are both metabolites and fall under the category of primary aliphatic amines?",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasChemicalClass/rdfs:label \"primary aliphatic amine\" .\n  ?Species os:hasUse/rdfs:label \"metabolite\" .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-164",
+        "domain": "ontocompchem",
+        "question": "Can you provide the electronic energy and the total enthalpy of H when calculated using UB3LYP level with CC-pVDZ or CC-pVQZ basis sets?",
+        "query": {
+            "sparql": "SELECT ?SCFEnergy ?TotalEnthalpy WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"H\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  VALUES ?LevelOfTheoryLabel { \"UB3LYP\" }\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n  VALUES ?BasisSetLabel { \"CC-pVDZ\" \"CC-pVQZ\" }\n  ?MolecularComputation occ:hasResult ?SCFEnergy .\n  ?SCFEnergy a occ:SCFEnergy .\n  ?MolecularComputation occ:hasResult ?TotalEnthalpy .\n  ?TotalEnthalpy a occ:TotalEnthalpy .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-945",
+        "domain": "ontospecies",
+        "question": "Can you find organic heterocyclic compounds classified as acetals with a vapor pressure exceeding 9479?",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasChemicalClass/rdfs:label \"acetal\" .\n  ?Species os:hasChemicalClass/rdfs:label \"organic heterocyclic compound\" .\n  ?Species os:hasVaporPressure/os:value ?VaporPressureValue .\n  FILTER ( ?VaporPressureValue > 9479 )\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-322",
+        "domain": "ontokin",
+        "question": "Identifying chemical reaction from article https://doi.org/10.1016/j.combustflame.2007.10.024 with OH as reactant and O as product.",
+        "query": {
+            "sparql": "SELECT ?Reaction WHERE {\n  ?Reaction ocape:hasProduct/skos:altLabel \"O\" .\n  ?Reaction ocape:hasReactant/skos:altLabel \"OH\" .\n  ?Reaction ^okin:hasReaction ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"https://doi.org/10.1016/j.combustflame.2007.10.024\" .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-141",
+        "domain": "ontokin",
+        "question": "Can you find the transportation model for H2 in each mechanism that it is part of?",
+        "query": {
+            "sparql": "SELECT ?TransportModel ?Mechanism WHERE {\n  ?Species skos:altLabel \"H2\" .\n  ?Species okin:hasTransportModel ?TransportModel .\n  ?TransportModel okin:definedIn ?Mechanism .\n  ?Species okin:belongsToPhase/^okin:hasGasPhase ?Mechanism .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-206",
+        "domain": "ontocompchem",
+        "question": "I'm looking for the molecular structure of H2O2, specifically calculated according to RB3LYP theory level.",
+        "query": {
+            "sparql": "SELECT ?OptimizedGeometry WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"H2O2\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  VALUES ?LevelOfTheoryLabel { \"RB3LYP\" }\n  ?MolecularComputation occ:hasResult ?OptimizedGeometry .\n  ?OptimizedGeometry a occ:OptimizedGeometry .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-55",
+        "domain": "ontokin",
+        "question": "In the research study found here https://doi.org/10.1002/kin.20026, could you tell me what type of kinetic model describes the H2 + M <=> H + H + M reaction?",
+        "query": {
+            "sparql": "SELECT ?KineticModel WHERE {\n  ?Reaction okin:hasEquation \"H2 + M <=> H + H + M\" .\n  ?Reaction ^okin:hasReaction ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"https://doi.org/10.1002/kin.20026\" .\n  ?Reaction okin:hasKineticModel ?KineticModel .\n  ?KineticModel okin:definedIn ?Mechanism .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-720",
+        "domain": "ontospecies",
+        "question": "What are the ChEBI IDs, solubility details, and XLogP3 values for 1-(1,3-benzodioxol-5-yl)-N-methylpropan-2-amine and C=CC1CCC=CC1?",
+        "query": {
+            "sparql": "SELECT ?ChebiID ?Solubility ?XLogP3 WHERE {\n  VALUES ?Species { \"1-(1,3-benzodioxol-5-yl)-N-methylpropan-2-amine\" \"C=CC1CCC=CC1\" }\n  ?Species os:hasChebiID ?ChebiID .\n  ?Species os:hasSolubility ?Solubility .\n  ?Species os:hasXLogP3 ?XLogP3 .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-367",
+        "domain": "ontocompchem",
+        "question": "What is the LUMO energy and electronic energy of O across all level of theory and basis set",
+        "query": {
+            "sparql": "SELECT ?LUMOEnergy ?SCFEnergy ?LevelOfTheoryLabel ?BasisSetLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"O\" .\n  ?MolecularComputation occ:hasResult ?LUMOEnergy .\n  ?LUMOEnergy a occ:LUMOEnergy .\n  ?MolecularComputation occ:hasResult ?SCFEnergy .\n  ?SCFEnergy a occ:SCFEnergy .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-719",
+        "domain": "ontospecies",
+        "question": "I'm looking for the standard enthalpy of formation value of 2-benzhydryloxy-N,N-dimethyl-ethanamine, can you help?",
+        "query": {
+            "sparql": "SELECT ?StandardEnthalpyOfFormation WHERE {\n  VALUES ?Species { \"2-benzhydryloxy-N,N-dimethyl-ethanamine\" }\n  ?Species os:hasStandardEnthalpyOfFormation ?StandardEnthalpyOfFormation .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-448",
+        "domain": "ontokin",
+        "question": "I need to determine the thermodynamic model that specifies AR in every reaction mechanism it appears.",
+        "query": {
+            "sparql": "SELECT ?ThermoModel ?Mechanism WHERE {\n  ?Species skos:altLabel \"AR\" .\n  ?Species okin:hasThermoModel ?ThermoModel .\n  ?ThermoModel okin:definedIn ?Mechanism .\n  ?Species okin:belongsToPhase/^okin:hasGasPhase ?Mechanism .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-450",
+        "domain": "ontocompchem",
+        "question": "What is the SLUMO energy of Ar across all basis set",
+        "query": {
+            "sparql": "SELECT ?LUMOPlus1Energy ?BasisSetLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"Ar\" .\n  ?MolecularComputation occ:hasResult ?LUMOPlus1Energy .\n  ?LUMOPlus1Energy a occ:LUMOPlus1Energy .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-974",
+        "domain": "ontospecies",
+        "question": "Can you provide information on the charge, monoisotopic weight and hydrogen bond donors of a chemical species with an atom chiral undef count greater than 0.9? It must fall under Nitrogen Compounds class and be utilized as Fuel.",
+        "query": {
+            "sparql": "SELECT ?Charge ?MonoIsotopicWeight ?HydrogenBondDonorCount WHERE {\n  ?Species os:hasAtomChiralUndefCount/os:value ?AtomChiralUndefCountValue .\n  FILTER ( ?AtomChiralUndefCountValue > 0.9 )\n  ?Species os:hasChemicalClass/rdfs:label \"Nitrogen Compounds\" .\n  ?Species os:hasUse/rdfs:label \"Fuel\" .\n  ?Species os:hasCharge ?Charge .\n  ?Species os:hasMonoIsotopicWeight ?MonoIsotopicWeight .\n  ?Species os:hasHydrogenBondDonorCount ?HydrogenBondDonorCount .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-123",
+        "domain": "ontospecies",
+        "question": "Can you give me information on butyl 4-oxidanylbenzoate's hydrogen bond acceptor count, its Henry's law constant, and how complex the compound is?",
+        "query": {
+            "sparql": "SELECT ?HydrogenBondAcceptorCount ?HenrysLawConstant ?CompoundComplexity WHERE {\n  VALUES ?Species { \"butyl 4-oxidanylbenzoate\" }\n  ?Species os:hasHydrogenBondAcceptorCount ?HydrogenBondAcceptorCount .\n  ?Species os:hasHenrysLawConstant ?HenrysLawConstant .\n  ?Species os:hasCompoundComplexity ?CompoundComplexity .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-109",
+        "domain": "ontokin",
+        "question": "I need the kinetic model for this reaction OH + HO2 = O2 + H2O as described in the mechanism on this webpage https://doi.org/10.1002/kin.20026. Can you help?",
+        "query": {
+            "sparql": "SELECT ?KineticModel WHERE {\n  ?Reaction okin:hasEquation \"OH + HO2 = O2 + H2O\" .\n  ?Reaction ^okin:hasReaction ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"https://doi.org/10.1002/kin.20026\" .\n  ?Reaction okin:hasKineticModel ?KineticModel .\n  ?KineticModel okin:definedIn ?Mechanism .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-91",
+        "domain": "ontospecies",
+        "question": "Search for chemicals with Log P equal to 4.5, compound complexity greater than 160.20000000000002 and nearly zero isotope atoms.",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasLogP/os:value ?LogPValue .\n  FILTER ( ?LogPValue = 4.5 )\n  ?Species os:hasCompoundComplexity/os:value ?CompoundComplexityValue .\n  FILTER ( ?CompoundComplexityValue > 160.20000000000002 )\n  ?Species os:hasIsotopeAtomCount/os:value ?IsotopeAtomCountValue .\n  FILTER ( ?IsotopeAtomCountValue > -0.1 && ?IsotopeAtomCountValue < 0.1 )\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-731",
+        "domain": "ontospecies",
+        "question": "Can you list the chemical substances with a boiling point less than 421.46500000000003?",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasBoilingPoint/os:value ?BoilingPointValue .\n  FILTER ( ?BoilingPointValue < 421.46500000000003 )\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-38",
+        "domain": "ontokin",
+        "question": "What's the kinetic reaction model for the chemical process involving reactant OH and product H2O2 mentioned in https://doi.org/10.1016/j.combustflame.2007.10.024?",
+        "query": {
+            "sparql": "SELECT ?KineticModel WHERE {\n  ?Reaction ocape:hasReactant/skos:altLabel \"OH\" .\n  ?Reaction ocape:hasProduct/skos:altLabel \"H2O2\" .\n  ?Reaction ^okin:hasReaction ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"https://doi.org/10.1016/j.combustflame.2007.10.024\" .\n  ?Reaction okin:hasKineticModel ?KineticModel .\n  ?KineticModel okin:definedIn ?Mechanism .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-761",
+        "domain": "ontospecies",
+        "question": "For InChI=1S/C20H21ClO4/c1-13(2)24-19(23)20(3,4)25-17-11-7-15(8-12-17)18(22)14-5-9-16(21)10-6-14/h5-13H,1-4H3, what is its heat of vaporization",
+        "query": {
+            "sparql": "SELECT ?HeatOfVaporization WHERE {\n  VALUES ?Species { \"InChI=1S/C20H21ClO4/c1-13(2)24-19(23)20(3,4)25-17-11-7-15(8-12-17)18(22)14-5-9-16(21)10-6-14/h5-13H,1-4H3\" }\n  ?Species os:hasHeatOfVaporization ?HeatOfVaporization .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-495",
+        "domain": "ontokin",
+        "question": "Can you tell me the number of chemical species appearing in the reaction mechanism posted on https://doi.org/10.1016/j.combustflame.2007.10.024?",
+        "query": {
+            "sparql": "SELECT (COUNT(?Species) AS ?SpeciesCount) WHERE {\n  ?Species okin:belongsToPhase/^okin:hasGasPhase ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"https://doi.org/10.1016/j.combustflame.2007.10.024\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-199",
+        "domain": "ontospecies",
+        "question": "Looking for chemical species that fall under the organonitrogen heterocyclic compound classification and dicarboximide fungicide class, having roughly 3 hydrogen bond acceptors.",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasChemicalClass/rdfs:label \"organonitrogen heterocyclic compound\" .\n  ?Species os:hasChemicalClass/rdfs:label \"dicarboximide fungicide\" .\n  ?Species os:hasHydrogenBondAcceptorCount/os:value ?HydrogenBondAcceptorCountValue .\n  FILTER ( ?HydrogenBondAcceptorCountValue > 3.0*0.9 && ?HydrogenBondAcceptorCountValue < 3.0*1.1 )\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-292",
+        "domain": "ontospecies",
+        "question": "What's the monoisotopic weight of a chemical species with a compound complexity equal to or more than 58.13999999999999 and isotope atom count less than -1.0 or more than 1?",
+        "query": {
+            "sparql": "SELECT ?MonoIsotopicWeight WHERE {\n  ?Species os:hasCompoundComplexity/os:value ?CompoundComplexityValue .\n  FILTER ( ?CompoundComplexityValue >= 58.13999999999999 )\n  ?Species os:hasIsotopeAtomCount/os:value ?IsotopeAtomCountValue .\n  FILTER ( ?IsotopeAtomCountValue < -1.0 || ?IsotopeAtomCountValue > 1 )\n  ?Species os:hasMonoIsotopicWeight ?MonoIsotopicWeight .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-550",
+        "domain": "ontospecies",
+        "question": "Which chemicals fall into the category of an organooxygen compound and also anitrogen molecular entity?",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasChemicalClass/rdfs:label \"organooxygen compound\" .\n  ?Species os:hasChemicalClass/rdfs:label \"nitrogen molecular entity\" .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-482",
+        "domain": "ontocompchem",
+        "question": "What's the basis set calculated ground state energy for N2?",
+        "query": {
+            "sparql": "SELECT ?ZeroPointEnergy ?BasisSetLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"N2\" .\n  ?MolecularComputation occ:hasResult ?ZeroPointEnergy .\n  ?ZeroPointEnergy a occ:ZeroPointEnergy .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-596",
+        "domain": "ontospecies",
+        "question": "I'm trying to find out the molecular mass of InChI=1S/C4H4O2/c1-3-2-4(5)6-3/h1-2H2.",
+        "query": {
+            "sparql": "SELECT ?MolecularWeight WHERE {\n  VALUES ?Species { \"InChI=1S/C4H4O2/c1-3-2-4(5)6-3/h1-2H2\" }\n  ?Species os:hasMolecularWeight ?MolecularWeight .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-506",
+        "domain": "ontokin",
+        "question": "What is the chemical species that appears in the reaction mechanism found in https://doi.org/10.1002/kin.20603",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species okin:belongsToPhase/^okin:hasGasPhase ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"https://doi.org/10.1002/kin.20603\" .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-231",
+        "domain": "ontocompchem",
+        "question": "I'm looking for information about the zero point energy of HO at every level of theory and basis set.",
+        "query": {
+            "sparql": "SELECT ?ZeroPointEnergy ?LevelOfTheoryLabel ?BasisSetLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"HO\" .\n  ?MolecularComputation occ:hasResult ?ZeroPointEnergy .\n  ?ZeroPointEnergy a occ:ZeroPointEnergy .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-149",
+        "domain": "ontokin",
+        "question": "What's the quantity of chemical reactions involving O as a reactant and HO2 as a product in the mechanism on the page www.osti.gov/servlets/purl/90098-26Ev73/webviewable/?",
+        "query": {
+            "sparql": "SELECT (COUNT(?Reaction) AS ?ReactionCount) WHERE {\n  ?Reaction ^okin:hasReaction ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"www.osti.gov/servlets/purl/90098-26Ev73/webviewable/\" .\n  ?Reaction ocape:hasReactant/skos:altLabel \"O\" .\n  ?Reaction ocape:hasProduct/skos:altLabel \"HO2\" .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-346",
+        "domain": "ontocompchem",
+        "question": "Need information on H2O2 frequencies calculated with the RB3LYP level.",
+        "query": {
+            "sparql": "SELECT ?Frequencies WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"H2O2\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  VALUES ?LevelOfTheoryLabel { \"RB3LYP\" }\n  ?MolecularComputation occ:hasResult ?Frequencies .\n  ?Frequencies a occ:Frequencies .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-687",
+        "domain": "ontospecies",
+        "question": "List of chemical species classified as both pnictogen molecular entity and organic heteropolycyclic compound?",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasChemicalClass/rdfs:label \"pnictogen molecular entity\" .\n  ?Species os:hasChemicalClass/rdfs:label \"organic heteropolycyclic compound\" .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-213",
+        "domain": "ontokin",
+        "question": "Can you provide details on the kinetic model of the chemical reaction, H + O2 (+ AR) <=> HO2 (+ AR)?",
+        "query": {
+            "sparql": "SELECT ?KineticModel WHERE {\n  ?Reaction okin:hasEquation \"H + O2 (+ AR) <=> HO2 (+ AR)\" .\n  ?Reaction okin:hasKineticModel ?KineticModel .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-382",
+        "domain": "ontokin",
+        "question": "Can I find information about the transportation model of chemical species in the reaction mechanism on www.osti.gov/servlets/purl/90098-26Ev73/webviewable/?",
+        "query": {
+            "sparql": "SELECT ?TransportModel WHERE {\n  ?Species okin:belongsToPhase/^okin:hasGasPhase ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"www.osti.gov/servlets/purl/90098-26Ev73/webviewable/\" .\n  ?Species okin:hasTransportModel ?TransportModel .\n  ?TransportModel okin:definedIn ?Mechanism .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-34",
+        "domain": "ontospecies",
+        "question": "Can you tell me the flash point of 3-hydroxybutan-2-one?",
+        "query": {
+            "sparql": "SELECT ?FlashPoint WHERE {\n  VALUES ?Species { \"3-hydroxybutan-2-one\" }\n  ?Species os:hasFlashPoint ?FlashPoint .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-445",
+        "domain": "ontocompchem",
+        "question": "Using either the CC-pVTZ, CC-pVDZ, or CC-pVQZ basis set, what's the total Gibbs free energy for HO2 with respect to all theory levels?",
+        "query": {
+            "sparql": "SELECT ?TotalGibbsFreeEnergy ?LevelOfTheoryLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"HO2\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n  VALUES ?BasisSetLabel { \"CC-pVTZ\" \"CC-pVDZ\" \"CC-pVQZ\" }\n  ?MolecularComputation occ:hasResult ?TotalGibbsFreeEnergy .\n  ?TotalGibbsFreeEnergy a occ:TotalGibbsFreeEnergy .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-193",
+        "domain": "ontospecies",
+        "question": "I need to know the viscosity and atom stereocenter count in InChI=1S/C7H14O2/c1-3-4-5-6-9-7(2)8/h3-6H2,1-2H3, can you help?",
+        "query": {
+            "sparql": "SELECT ?Viscosity ?AtomChiralDefCount WHERE {\n  VALUES ?Species { \"InChI=1S/C7H14O2/c1-3-4-5-6-9-7(2)8/h3-6H2,1-2H3\" }\n  ?Species os:hasViscosity ?Viscosity .\n  ?Species os:hasAtomChiralDefCount ?AtomChiralDefCount .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-46",
+        "domain": "ontocompchem",
+        "question": "Looking for LUMO energy, total enthalpy, and frequencies of H2O2 for each of the basis sets.",
+        "query": {
+            "sparql": "SELECT ?LUMOEnergy ?Frequencies ?TotalEnthalpy ?BasisSetLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"H2O2\" .\n  ?MolecularComputation occ:hasResult ?LUMOEnergy .\n  ?LUMOEnergy a occ:LUMOEnergy .\n  ?MolecularComputation occ:hasResult ?Frequencies .\n  ?Frequencies a occ:Frequencies .\n  ?MolecularComputation occ:hasResult ?TotalEnthalpy .\n  ?TotalEnthalpy a occ:TotalEnthalpy .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-53",
+        "domain": "ontospecies",
+        "question": "Can you find me the nitrogen molecular entities with a logP value less than 1.62 or greater than 1.9800000000000002 and a bond chiral def count above -1?",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasLogP/os:value ?LogPValue .\n  FILTER ( ?LogPValue < 1.62 || ?LogPValue > 1.9800000000000002 )\n  ?Species os:hasChemicalClass/rdfs:label \"nitrogen molecular entity\" .\n  ?Species os:hasBondChiralDefCount/os:value ?BondChiralDefCountValue .\n  FILTER ( ?BondChiralDefCountValue > -1 )\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-862",
+        "domain": "ontospecies",
+        "question": "What is the Chemical Entities of Biological Interest ID and compound complexity and covalent unit count of CC1=CC=CC=C1N",
+        "query": {
+            "sparql": "SELECT ?ChebiID ?CompoundComplexity ?CovalentUnitCount WHERE {\n  VALUES ?Species { \"CC1=CC=CC=C1N\" }\n  ?Species os:hasChebiID ?ChebiID .\n  ?Species os:hasCompoundComplexity ?CompoundComplexity .\n  ?Species os:hasCovalentUnitCount ?CovalentUnitCount .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-28",
+        "domain": "ontospecies",
+        "question": "Need to find out the boiling points and flash points for COC(=O)C1=CC=CC=C1, C(=O)(O)P(=O)(O)O, and C10H18O2.",
+        "query": {
+            "sparql": "SELECT ?BoilingPoint ?FlashPoint WHERE {\n  VALUES ?Species { \"COC(=O)C1=CC=CC=C1\" \"C(=O)(O)P(=O)(O)O\" \"C10H18O2\" }\n  ?Species os:hasBoilingPoint ?BoilingPoint .\n  ?Species os:hasFlashPoint ?FlashPoint .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-41",
+        "domain": "ontokin",
+        "question": "Can I get a detailed understanding of the reaction mechanism with N2?",
+        "query": {
+            "sparql": "SELECT ?Mechanism WHERE {\n  ?Mechanism okin:hasGasPhase/^okin:belongsToPhase/skos:altLabel \"N2\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-213",
+        "domain": "ontospecies",
+        "question": "I'm looking for the IUPAC naming of C7H7Cl and its applications.",
+        "query": {
+            "sparql": "SELECT ?IUPACName ?UseLabel WHERE {\n  VALUES ?Species { \"C7H7Cl\" }\n  ?Species os:hasIUPACName ?IUPACName .\n  ?Species os:hasUse/rdfs:label ?UseLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-792",
+        "domain": "ontospecies",
+        "question": "What's the viscosity of C17H21NO4 and C1=CC=C2C(=C1)NC3=CC=CC=C3S2?",
+        "query": {
+            "sparql": "SELECT ?Viscosity WHERE {\n  VALUES ?Species { \"C17H21NO4\" \"C1=CC=C2C(=C1)NC3=CC=CC=C3S2\" }\n  ?Species os:hasViscosity ?Viscosity .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-1003",
+        "domain": "ontospecies",
+        "question": "Can you tell me the count of chiral bonds present in a molecule of InChI=1S/C21H23N3OS/c22-15-16-6-7-21-19(14-16)24(18-4-1-2-5-20(18)26-21)11-3-10-23-12-8-17(25)9-13-23/h1-2,4-7,14,17,25H,3,8-13H2?",
+        "query": {
+            "sparql": "SELECT ?BondChiralCount WHERE {\n  VALUES ?Species { \"InChI=1S/C21H23N3OS/c22-15-16-6-7-21-19(14-16)24(18-4-1-2-5-20(18)26-21)11-3-10-23-12-8-17(25)9-13-23/h1-2,4-7,14,17,25H,3,8-13H2\" }\n  ?Species os:hasBondChiralCount ?BondChiralCount .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-200",
+        "domain": "ontocompchem",
+        "question": "What is the SCF energy of Ar calculated at the RB3LYP level of theory",
+        "query": {
+            "sparql": "SELECT ?SCFEnergy WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"Ar\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  VALUES ?LevelOfTheoryLabel { \"RB3LYP\" }\n  ?MolecularComputation occ:hasResult ?SCFEnergy .\n  ?SCFEnergy a occ:SCFEnergy .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-308",
+        "domain": "ontokin",
+        "question": "Need to find the kinetic model for the O2 + H (+ H2O) = HO2 (+ H2O) chemical reaction.",
+        "query": {
+            "sparql": "SELECT ?KineticModel WHERE {\n  ?Reaction okin:hasEquation \"O2 + H (+ H2O) = HO2 (+ H2O)\" .\n  ?Reaction okin:hasKineticModel ?KineticModel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-363",
+        "domain": "ontospecies",
+        "question": "Can you list the heteroorganic and polyatomic entities with about 15 non-hydrogen atoms?",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasHeavyAtomCount/os:value ?HeavyAtomCountValue .\n  FILTER ( ?HeavyAtomCountValue > 15.0*0.9 && ?HeavyAtomCountValue < 15.0*1.1 )\n  ?Species os:hasChemicalClass/rdfs:label \"heteroorganic entity\" .\n  ?Species os:hasChemicalClass/rdfs:label \"heteroorganic entity\" .\n  ?Species os:hasChemicalClass/rdfs:label \"polyatomic entity\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-765",
+        "domain": "ontospecies",
+        "question": "What are the chemical species whose chemical classification is hydrogen molecular entity and role is antithyroid drug and chemical class is amino acid derivative",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasChemicalClass/rdfs:label \"hydrogen molecular entity\" .\n  ?Species os:hasUse/rdfs:label \"antithyroid drug\" .\n  ?Species os:hasChemicalClass/rdfs:label \"amino acid derivative\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-690",
+        "domain": "ontospecies",
+        "question": "Looking for chemical species with covalent unit count less than 0 or more than 2, undefined bond stereocenter count not exceeding 1, and ionization potential of at least 0",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasCovalentUnitCount/os:value ?CovalentUnitCountValue .\n  FILTER ( ?CovalentUnitCountValue < 0 || ?CovalentUnitCountValue > 2 )\n  ?Species os:hasBondChiralUndefCount/os:value ?BondChiralUndefCountValue .\n  FILTER ( ?BondChiralUndefCountValue <= 1 )\n  ?Species os:hasIonizationPotential/os:value ?IonizationPotentialValue .\n  FILTER ( ?IonizationPotentialValue >= 0 )\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-455",
+        "domain": "ontocompchem",
+        "question": "What's the calculated LUMO+2 energy value for HO2 at a specified theory level?",
+        "query": {
+            "sparql": "SELECT ?LUMOPlus2Energy ?LevelOfTheoryLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"HO2\" .\n  ?MolecularComputation occ:hasResult ?LUMOPlus2Energy .\n  ?LUMOPlus2Energy a occ:LUMOPlus2Energy .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-346",
+        "domain": "ontokin",
+        "question": "What is the chemical reaction that has reactant OH and has reactant H",
+        "query": {
+            "sparql": "SELECT ?Reaction WHERE {\n  ?Reaction ocape:hasReactant/skos:altLabel \"OH\" .\n  ?Reaction ocape:hasReactant/skos:altLabel \"H\" .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-465",
+        "domain": "ontokin",
+        "question": "What's the name of the chemical reaction where H2O2 + H = OH + H2O happens?",
+        "query": {
+            "sparql": "SELECT ?Mechanism WHERE {\n  ?Mechanism okin:hasReaction/okin:hasEquation \"H2O2 + H = OH + H2O\" .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-486",
+        "domain": "ontocompchem",
+        "question": "What is the energy of second lowest unoccupied molecular orbital and frequencies of H2O2, specifying the level of theory and basis set at which the calculations are performed",
+        "query": {
+            "sparql": "SELECT ?LUMOPlus1Energy ?Frequencies ?LevelOfTheoryLabel ?BasisSetLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"H2O2\" .\n  ?MolecularComputation occ:hasResult ?LUMOPlus1Energy .\n  ?LUMOPlus1Energy a occ:LUMOPlus1Energy .\n  ?MolecularComputation occ:hasResult ?Frequencies .\n  ?Frequencies a occ:Frequencies .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-886",
+        "domain": "ontospecies",
+        "question": "Number of heavy atoms in C3H6O2?",
+        "query": {
+            "sparql": "SELECT ?HeavyAtomCount WHERE {\n  VALUES ?Species { \"C3H6O2\" }\n  ?Species os:hasHeavyAtomCount ?HeavyAtomCount .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-374",
+        "domain": "ontokin",
+        "question": "I'm looking for information on the kinetic modeling of the chemical reaction O2 + H (+ H2) = HO2 (+ H2).",
+        "query": {
+            "sparql": "SELECT ?KineticModel WHERE {\n  ?Reaction okin:hasEquation \"O2 + H (+ H2) = HO2 (+ H2)\" .\n  ?Reaction okin:hasKineticModel ?KineticModel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-120",
+        "domain": "ontospecies",
+        "question": "For C1=CN=C(C=N1)C(=O)N and C1=CC(=C(C=C1Cl)O)Cl, what is their undefined bond stereocenter count",
+        "query": {
+            "sparql": "SELECT ?BondChiralUndefCount WHERE {\n  VALUES ?Species { \"C1=CN=C(C=N1)C(=O)N\" \"C1=CC(=C(C=C1Cl)O)Cl\" }\n  ?Species os:hasBondChiralUndefCount ?BondChiralUndefCount .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-390",
+        "domain": "ontocompchem",
+        "question": "What is the LUMO+2 energy and frequencies of Ar",
+        "query": {
+            "sparql": "SELECT ?LUMOPlus2Energy ?Frequencies WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"Ar\" .\n  ?MolecularComputation occ:hasResult ?LUMOPlus2Energy .\n  ?LUMOPlus2Energy a occ:LUMOPlus2Energy .\n  ?MolecularComputation occ:hasResult ?Frequencies .\n  ?Frequencies a occ:Frequencies .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-432",
+        "domain": "ontokin",
+        "question": "How does the kinetic reaction model for H2O + H + H = H2O + H2 work?",
+        "query": {
+            "sparql": "SELECT ?KineticModel WHERE {\n  ?Reaction okin:hasEquation \"H2O + H + H = H2O + H2\" .\n  ?Reaction okin:hasKineticModel ?KineticModel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-348",
+        "domain": "ontospecies",
+        "question": "Can you tell me the solubility, collision cross section, and heat of combustion for (2<I>S</I>)-2-amino-3-(1<I>H</I>-indol-3-yl)propanoic acid?",
+        "query": {
+            "sparql": "SELECT ?Solubility ?CollisionCrossSection ?HeatOfCombustion WHERE {\n  VALUES ?Species { \"(2<I>S</I>)-2-amino-3-(1<I>H</I>-indol-3-yl)propanoic acid\" }\n  ?Species os:hasSolubility ?Solubility .\n  ?Species os:hasCollisionCrossSection ?CollisionCrossSection .\n  ?Species os:hasHeatOfCombustion ?HeatOfCombustion .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-354",
+        "domain": "ontokin",
+        "question": "I'm trying to figure out the transport model for the chemical species in the reaction mechanism provided in this source https://doi.org/10.1002/kin.20026. Can you help?",
+        "query": {
+            "sparql": "SELECT ?TransportModel WHERE {\n  ?Species okin:belongsToPhase/^okin:hasGasPhase ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"https://doi.org/10.1002/kin.20026\" .\n  ?Species okin:hasTransportModel ?TransportModel .\n  ?TransportModel okin:definedIn ?Mechanism .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-107",
+        "domain": "ontospecies",
+        "question": "Find me any chemical species that have a minimum vapor density of 4 and a maximum bond chiral undef count of 1.",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasVaporDensity/os:value ?VaporDensityValue .\n  FILTER ( ?VaporDensityValue >= 4 )\n  ?Species os:hasBondChiralUndefCount/os:value ?BondChiralUndefCountValue .\n  FILTER ( ?BondChiralUndefCountValue <= 1 )\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-400",
+        "domain": "ontokin",
+        "question": "What is the chemical species that appears in the reaction mechanism found in https://doi.org/10.1002/kin.20603",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species okin:belongsToPhase/^okin:hasGasPhase ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"https://doi.org/10.1002/kin.20603\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-192",
+        "domain": "ontospecies",
+        "question": "Search for the boiling point of an organonitrogen compound with a maximum mass of 79 and specific complexity level at 53.9?",
+        "query": {
+            "sparql": "SELECT ?CompoundComplexity ?ChemicalClassLabel ?BoilingPoint WHERE {\n  ?Species os:hasExactMass/os:value ?ExactMassValue .\n  FILTER ( ?ExactMassValue <= 79 )\n  ?Species os:hasCompoundComplexity/os:value ?CompoundComplexityValue .\n  FILTER ( ?CompoundComplexityValue = 53.9 )\n  ?Species os:hasChemicalClass/rdfs:label \"organonitrogen compound\" .\n  ?Species os:hasCompoundComplexity ?CompoundComplexity .\n  ?Species os:hasChemicalClass/rdfs:label ?ChemicalClassLabel .\n  ?Species os:hasBoilingPoint ?BoilingPoint .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-915",
+        "domain": "ontospecies",
+        "question": "Can you find the hashed InChI for both 2-[3-[4-(3-chlorophenyl)piperazino]propyl]-[1,2,4]triazolo[4,3-a]pyridin-3-one and InChI=1S/C12H8Cl6O/c13-8-9(14)11(16)5-3-1-2(6-7(3)19-6)4(5)10(8,15)12(11,17)18/h2-7H,1H2?",
+        "query": {
+            "sparql": "SELECT ?InChIKey WHERE {\n  VALUES ?Species { \"2-[3-[4-(3-chlorophenyl)piperazino]propyl]-[1,2,4]triazolo[4,3-a]pyridin-3-one\" \"InChI=1S/C12H8Cl6O/c13-8-9(14)11(16)5-3-1-2(6-7(3)19-6)4(5)10(8,15)12(11,17)18/h2-7H,1H2\" }\n  ?Species os:hasInChIKey ?InChIKey .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-293",
+        "domain": "ontospecies",
+        "question": "What's the collision cross section of InChI=1S/C2H5NO3/c1-2-6-3(4)5/h2H2,1H3?",
+        "query": {
+            "sparql": "SELECT ?CollisionCrossSection WHERE {\n  VALUES ?Species { \"InChI=1S/C2H5NO3/c1-2-6-3(4)5/h2H2,1H3\" }\n  ?Species os:hasCollisionCrossSection ?CollisionCrossSection .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-615",
+        "domain": "ontospecies",
+        "question": "I'm looking for chlorobenzenes, halogen molecular entities, and molecular entities with a monoisotopic mass greater than 192.50196300000002 but an exact mass less than 238.",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasMonoIsotopicWeight/os:value ?MonoIsotopicWeightValue .\n  FILTER ( ?MonoIsotopicWeightValue > 192.50196300000002 )\n  ?Species os:hasChemicalClass/rdfs:label \"chlorobenzenes\" .\n  ?Species os:hasChemicalClass/rdfs:label \"halogen molecular entity\" .\n  ?Species os:hasChemicalClass/rdfs:label \"molecular entity\" .\n  ?Species os:hasExactMass/os:value ?ExactMassValue .\n  FILTER ( ?ExactMassValue < 238 )\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-239",
+        "domain": "ontokin",
+        "question": "Can you explain the reaction mechanism for HO2 + HO2 = H2O2 + O2?",
+        "query": {
+            "sparql": "SELECT ?Mechanism WHERE {\n  ?Mechanism okin:hasReaction/okin:hasEquation \"HO2 + HO2 = H2O2 + O2\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-411",
+        "domain": "ontospecies",
+        "question": "What's the vapor pressure of C(C(=O)O)NCP(=O)(O)O and C12H11N3?",
+        "query": {
+            "sparql": "SELECT ?VaporPressure WHERE {\n  VALUES ?Species { \"C(C(=O)O)NCP(=O)(O)O\" \"C12H11N3\" }\n  ?Species os:hasVaporPressure ?VaporPressure .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-323",
+        "domain": "ontokin",
+        "question": "What happens in a chemical reaction involving the reactant OH?",
+        "query": {
+            "sparql": "SELECT ?Reaction WHERE {\n  ?Reaction ocape:hasReactant/skos:altLabel \"OH\" .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-197",
+        "domain": "ontocompchem",
+        "question": "What is the total enthalpy of O calculated at the UB3LYP level across all basis set",
+        "query": {
+            "sparql": "SELECT ?TotalEnthalpy ?BasisSetLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"O\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  VALUES ?LevelOfTheoryLabel { \"UB3LYP\" }\n  ?MolecularComputation occ:hasResult ?TotalEnthalpy .\n  ?TotalEnthalpy a occ:TotalEnthalpy .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-319",
+        "domain": "ontospecies",
+        "question": "I'm looking for chemical species where the Henry's law constant is not less than 0.0027084173400000002 and the heavy atom count is either under 7.2 or over 8.8.",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasHenrysLawConstant/os:value ?HenrysLawConstantValue .\n  FILTER ( ?HenrysLawConstantValue >= 0.0027084173400000002 )\n  ?Species os:hasHeavyAtomCount/os:value ?HeavyAtomCountValue .\n  FILTER ( ?HeavyAtomCountValue < 7.2 || ?HeavyAtomCountValue > 8.8 )\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-400",
+        "domain": "ontocompchem",
+        "question": "Determining the energy level of the lowest unoccupied molecular orbital in Ar based on the CC-pVDZ basis set.",
+        "query": {
+            "sparql": "SELECT ?LUMOEnergy WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"Ar\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n  VALUES ?BasisSetLabel { \"CC-pVDZ\" }\n  ?MolecularComputation occ:hasResult ?LUMOEnergy .\n  ?LUMOEnergy a occ:LUMOEnergy .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-332",
+        "domain": "ontocompchem",
+        "question": "Determining the Gibbs free energy of N2 using the RB3LYP level and CC-pVDZ basis set.",
+        "query": {
+            "sparql": "SELECT ?TotalGibbsFreeEnergy WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"N2\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  VALUES ?LevelOfTheoryLabel { \"RB3LYP\" }\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n  VALUES ?BasisSetLabel { \"CC-pVDZ\" }\n  ?MolecularComputation occ:hasResult ?TotalGibbsFreeEnergy .\n  ?TotalGibbsFreeEnergy a occ:TotalGibbsFreeEnergy .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-195",
+        "domain": "ontokin",
+        "question": "What is the reaction mechanism that invovles the reaction OH + OH <=> O + H2O and invovles the reaction O2 + H (+ H2O) <=> HO2 (+ H2O)",
+        "query": {
+            "sparql": "SELECT ?Mechanism WHERE {\n  ?Mechanism okin:hasReaction/okin:hasEquation \"OH + OH <=> O + H2O\" .\n  ?Mechanism okin:hasReaction/okin:hasEquation \"O2 + H (+ H2O) <=> HO2 (+ H2O)\" .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-44",
+        "domain": "ontokin",
+        "question": "What is the kinetic model of the chemical reaction that has reactant HO2 and has product O2",
+        "query": {
+            "sparql": "SELECT ?KineticModel WHERE {\n  ?Reaction ocape:hasReactant/skos:altLabel \"HO2\" .\n  ?Reaction ocape:hasProduct/skos:altLabel \"O2\" .\n  ?Reaction okin:hasKineticModel ?KineticModel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-499",
+        "domain": "ontospecies",
+        "question": "I'm looking for information on the properties of InChI=1S/C4H6O2S/c1-3-7(5,6)4-2/h3-4H,1-2H2.",
+        "query": {
+            "sparql": "SELECT ?PropertyName WHERE {\n  VALUES ?Species { \"InChI=1S/C4H6O2S/c1-3-7(5,6)4-2/h3-4H,1-2H2\" }\n  ?Species ?hasPropertyName ?PropertyName .\n  ?PropertyName a/rdfs:subClassOf os:Property .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-495",
+        "domain": "ontocompchem",
+        "question": "What is the total energy and energy of lowest unoccupied molecular orbital of HO2",
+        "query": {
+            "sparql": "SELECT ?TotalEnergy ?LUMOEnergy WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"HO2\" .\n  ?MolecularComputation occ:hasResult ?TotalEnergy .\n  ?TotalEnergy a occ:TotalEnergy .\n  ?MolecularComputation occ:hasResult ?LUMOEnergy .\n  ?LUMOEnergy a occ:LUMOEnergy .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-485",
+        "domain": "ontospecies",
+        "question": "What is the bond chiral count of 1,2-bis(bromanyl)ethane",
+        "query": {
+            "sparql": "SELECT ?BondChiralCount WHERE {\n  VALUES ?Species { \"1,2-bis(bromanyl)ethane\" }\n  ?Species os:hasBondChiralCount ?BondChiralCount .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-68",
+        "domain": "ontocompchem",
+        "question": "What is the energy of next-to-highest occupied molecular orbital of H2O calculated at the RB3LYP level of theory across all basis set",
+        "query": {
+            "sparql": "SELECT ?HOMOMinus1Energy ?BasisSetLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"H2O\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  VALUES ?LevelOfTheoryLabel { \"RB3LYP\" }\n  ?MolecularComputation occ:hasResult ?HOMOMinus1Energy .\n  ?HOMOMinus1Energy a occ:HOMOMinus1Energy .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-380",
+        "domain": "ontocompchem",
+        "question": "What is the optimized geometry of Ar calculated at the RB3LYP level using the CC-pVTZ basis set",
+        "query": {
+            "sparql": "SELECT ?OptimizedGeometry WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"Ar\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  VALUES ?LevelOfTheoryLabel { \"RB3LYP\" }\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n  VALUES ?BasisSetLabel { \"CC-pVTZ\" }\n  ?MolecularComputation occ:hasResult ?OptimizedGeometry .\n  ?OptimizedGeometry a occ:OptimizedGeometry .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-412",
+        "domain": "ontospecies",
+        "question": "What is the density of the chemical species whose exact mass is bigger than 181 and application is Corrosion inhibitors and anti-scaling agents and covalent unit count is equal to 1.0",
+        "query": {
+            "sparql": "SELECT ?Density WHERE {\n  ?Species os:hasExactMass/os:value ?ExactMassValue .\n  FILTER ( ?ExactMassValue > 181 )\n  ?Species os:hasUse/rdfs:label \"Corrosion inhibitors and anti-scaling agents\" .\n  ?Species os:hasCovalentUnitCount/os:value ?CovalentUnitCountValue .\n  FILTER ( ?CovalentUnitCountValue = 1.0 )\n  ?Species os:hasDensity ?Density .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-383",
+        "domain": "ontokin",
+        "question": "Searching for the reaction pathway which incorporates OH, N2, and O2.",
+        "query": {
+            "sparql": "SELECT ?Mechanism WHERE {\n  ?Mechanism okin:hasGasPhase/^okin:belongsToPhase/skos:altLabel \"OH\" .\n  ?Mechanism okin:hasGasPhase/^okin:belongsToPhase/skos:altLabel \"N2\" .\n  ?Mechanism okin:hasGasPhase/^okin:belongsToPhase/skos:altLabel \"O2\" .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-271",
+        "domain": "ontocompchem",
+        "question": "Searching for the calculated frequencies of HO using the CC-pVDZ, CC-pVTZ, and CC-pVQZ basis sets across all theoretical levels.",
+        "query": {
+            "sparql": "SELECT ?Frequencies ?LevelOfTheoryLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"HO\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n  VALUES ?BasisSetLabel { \"CC-pVDZ\" \"CC-pVTZ\" \"CC-pVQZ\" }\n  ?MolecularComputation occ:hasResult ?Frequencies .\n  ?Frequencies a occ:Frequencies .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-265",
+        "domain": "ontokin",
+        "question": "Number of chemical reactions involving OH as a reactant and O and H2O as products on the webpage www.osti.gov/servlets/purl/90098-26Ev73/webviewable/?",
+        "query": {
+            "sparql": "SELECT (COUNT(?Reaction) AS ?ReactionCount) WHERE {\n  ?Reaction ocape:hasReactant/skos:altLabel \"OH\" .\n  ?Reaction ^okin:hasReaction ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"www.osti.gov/servlets/purl/90098-26Ev73/webviewable/\" .\n  ?Reaction ocape:hasProduct/skos:altLabel \"O\" .\n  ?Reaction ocape:hasProduct/skos:altLabel \"H2O\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-727",
+        "domain": "ontospecies",
+        "question": "What's the ChEBI ID, optical rotation values and combustion heat for 5-azanyl-2-oxidanyl-benzoic acid?",
+        "query": {
+            "sparql": "SELECT ?HeatOfCombustion ?OpticalRotation ?ChebiID WHERE {\n  VALUES ?Species { \"5-azanyl-2-oxidanyl-benzoic acid\" }\n  ?Species os:hasHeatOfCombustion ?HeatOfCombustion .\n  ?Species os:hasOpticalRotation ?OpticalRotation .\n  ?Species os:hasChebiID ?ChebiID .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-748",
+        "domain": "ontospecies",
+        "question": "What are the chemical species whose chemical class is hydroxides and chemical class is carbonyl compound",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasChemicalClass/rdfs:label \"hydroxides\" .\n  ?Species os:hasChemicalClass/rdfs:label \"carbonyl compound\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-647",
+        "domain": "ontospecies",
+        "question": "Need info on XLogP3, boiling point and Henry's Law constant of CC1=CNC(=O)NC1=O.",
+        "query": {
+            "sparql": "SELECT ?XLogP3 ?BoilingPoint ?HenrysLawConstant WHERE {\n  VALUES ?Species { \"CC1=CNC(=O)NC1=O\" }\n  ?Species os:hasXLogP3 ?XLogP3 .\n  ?Species os:hasBoilingPoint ?BoilingPoint .\n  ?Species os:hasHenrysLawConstant ?HenrysLawConstant .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-603",
+        "domain": "ontospecies",
+        "question": "Can you find the International Chemical Identifier for InChI=1S/C2H2Cl2/c3-1-2-4/h1-2H?",
+        "query": {
+            "sparql": "SELECT ?InChI WHERE {\n  VALUES ?Species { \"InChI=1S/C2H2Cl2/c3-1-2-4/h1-2H\" }\n  ?Species os:hasInChI ?InChI .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-551",
+        "domain": "ontospecies",
+        "question": "I need to find out the molecular mass for a substance that is typically used as a solvent, falls under the category of carbonate ester, and has its flash point nearly at 272.59445 degrees?",
+        "query": {
+            "sparql": "SELECT ?MolecularWeight WHERE {\n  ?Species os:hasUse/rdfs:label \"solvent\" .\n  ?Species os:hasChemicalClass/rdfs:label \"carbonate ester\" .\n  ?Species os:hasFlashPoint/os:value ?FlashPointValue .\n  FILTER ( ?FlashPointValue > 272.59445*0.9 && ?FlashPointValue < 272.59445*1.1 )\n  ?Species os:hasMolecularWeight ?MolecularWeight .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-821",
+        "domain": "ontospecies",
+        "question": "What are the chemical species whose chemical class is heterocyclic compound and chemical classification is organic heteropolycyclic compound and chemical class is heterocyclic compound",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasChemicalClass/rdfs:label \"heterocyclic compound\" .\n  ?Species os:hasChemicalClass/rdfs:label \"organic heteropolycyclic compound\" .\n  ?Species os:hasChemicalClass/rdfs:label \"heterocyclic compound\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-421",
+        "domain": "ontospecies",
+        "question": "What is the vapor pressure and flash point of 2,4,5-trimethylaniline",
+        "query": {
+            "sparql": "SELECT ?VaporPressure ?FlashPoint WHERE {\n  VALUES ?Species { \"2,4,5-trimethylaniline\" }\n  ?Species os:hasVaporPressure ?VaporPressure .\n  ?Species os:hasFlashPoint ?FlashPoint .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-99",
+        "domain": "ontocompchem",
+        "question": "Can you find the LUMO energy and rotational constants for O2, and tell me the basis set used for these calculations?",
+        "query": {
+            "sparql": "SELECT ?LUMOEnergy ?RotationalConstants ?BasisSetLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"O2\" .\n  ?MolecularComputation occ:hasResult ?LUMOEnergy .\n  ?LUMOEnergy a occ:LUMOEnergy .\n  ?MolecularComputation occ:hasResult ?RotationalConstants .\n  ?RotationalConstants a occ:RotationalConstants .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-302",
+        "domain": "ontospecies",
+        "question": "I'm looking for information on 1,1-dimethyl-3-[3-(trifluoromethyl)phenyl]urea's isoelectric point as well as its enthalpy of sublimation and heat of vaporization.",
+        "query": {
+            "sparql": "SELECT ?IsoelectricPoint ?EnthalpyOfSublimation ?HeatOfVaporization WHERE {\n  VALUES ?Species { \"1,1-dimethyl-3-[3-(trifluoromethyl)phenyl]urea\" }\n  ?Species os:hasIsoelectricPoint ?IsoelectricPoint .\n  ?Species os:hasEnthalpyOfSublimation ?EnthalpyOfSublimation .\n  ?Species os:hasHeatOfVaporization ?HeatOfVaporization .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-168",
+        "domain": "ontokin",
+        "question": "Which chemical reaction involves the conversion of H2O into H?",
+        "query": {
+            "sparql": "SELECT ?Reaction WHERE {\n  ?Reaction ocape:hasProduct/skos:altLabel \"H\" .\n  ?Reaction ocape:hasReactant/skos:altLabel \"H2O\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-579",
+        "domain": "ontospecies",
+        "question": "What are the chemical species whose defined bond stereocenter count is outside the range (-1, 1)",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasBondChiralDefCount/os:value ?BondChiralDefCountValue .\n  FILTER ( ?BondChiralDefCountValue < -1 || ?BondChiralDefCountValue > 1 )\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-179",
+        "domain": "ontocompchem",
+        "question": "What results do I get for O2 rotational constants when calculated with a CC-pVTZ basis set over all theory levels?",
+        "query": {
+            "sparql": "SELECT ?RotationalConstants ?LevelOfTheoryLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"O2\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n  VALUES ?BasisSetLabel { \"CC-pVTZ\" }\n  ?MolecularComputation occ:hasResult ?RotationalConstants .\n  ?RotationalConstants a occ:RotationalConstants .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-118",
+        "domain": "ontospecies",
+        "question": "Can you tell me the Caco-2 permeability for propionitrile?",
+        "query": {
+            "sparql": "SELECT ?Caco2Permeability WHERE {\n  VALUES ?Species { \"propionitrile\" }\n  ?Species os:hasCaco2Permeability ?Caco2Permeability .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-86",
+        "domain": "ontospecies",
+        "question": "I'm looking for information on the hydrophobicity, hashed InChI and collision cross section of a chemical compound that has an XLOGP3 value close to 0.3 and its flash point is under 313.29834800000003.",
+        "query": {
+            "sparql": "SELECT ?Hydrophobicity ?InChIKey ?CollisionCrossSection WHERE {\n  ?Species os:hasXLogP3/os:value ?XLogP3Value .\n  FILTER ( ?XLogP3Value > 0.3*0.9 && ?XLogP3Value < 0.3*1.1 )\n  ?Species os:hasFlashPoint/os:value ?FlashPointValue .\n  FILTER ( ?FlashPointValue < 313.29834800000003 )\n  ?Species os:hasHydrophobicity ?Hydrophobicity .\n  ?Species os:hasInChIKey ?InChIKey .\n  ?Species os:hasCollisionCrossSection ?CollisionCrossSection .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-868",
+        "domain": "ontospecies",
+        "question": "What are the chemical species whose chemical class is hydroxides and chemical classification is chemical entity",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasChemicalClass/rdfs:label \"hydroxides\" .\n  ?Species os:hasChemicalClass/rdfs:label \"chemical entity\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-390",
+        "domain": "ontospecies",
+        "question": "Which chemical species classified as main group molecular entity have more than 3.6 rotatable bonds?",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasRotatableBondCount/os:value ?RotatableBondCountValue .\n  FILTER ( ?RotatableBondCountValue > 3.6 )\n  ?Species os:hasChemicalClass/rdfs:label \"main group molecular entity\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-976",
+        "domain": "ontospecies",
+        "question": "Can you tell me the charge, enthalpy of sublimation and the IUPAC International Chemical Identifier for 1,1-difluoroethylene?",
+        "query": {
+            "sparql": "SELECT ?Charge ?EnthalpyOfSublimation ?InChI WHERE {\n  VALUES ?Species { \"1,1-difluoroethylene\" }\n  ?Species os:hasCharge ?Charge .\n  ?Species os:hasEnthalpyOfSublimation ?EnthalpyOfSublimation .\n  ?Species os:hasInChI ?InChI .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-327",
+        "domain": "ontocompchem",
+        "question": "Can I know the ground state energy level of O using either CC-pVQZ or CC-pVTZ basis set? Please indicate the theory level used in calculations.",
+        "query": {
+            "sparql": "SELECT ?ZeroPointEnergy ?LevelOfTheoryLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"O\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n  VALUES ?BasisSetLabel { \"CC-pVQZ\" \"CC-pVTZ\" }\n  ?MolecularComputation occ:hasResult ?ZeroPointEnergy .\n  ?ZeroPointEnergy a occ:ZeroPointEnergy .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-11",
+        "domain": "ontospecies",
+        "question": "How soluble are hexane-1,6-diol and bis(2-methylpropyl) hexanedioate?",
+        "query": {
+            "sparql": "SELECT ?Solubility WHERE {\n  VALUES ?Species { \"hexane-1,6-diol\" \"bis(2-methylpropyl) hexanedioate\" }\n  ?Species os:hasSolubility ?Solubility .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-420",
+        "domain": "ontospecies",
+        "question": "Can you tell me the precise weight of S?",
+        "query": {
+            "sparql": "SELECT ?ExactMass WHERE {\n  VALUES ?Species { \"S\" }\n  ?Species os:hasExactMass ?ExactMass .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-202",
+        "domain": "ontocompchem",
+        "question": "What's the total Gibbs free energy value for N2 according to different theory levels and basis sets?",
+        "query": {
+            "sparql": "SELECT ?TotalGibbsFreeEnergy ?LevelOfTheoryLabel ?BasisSetLabel WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"N2\" .\n  ?MolecularComputation occ:hasResult ?TotalGibbsFreeEnergy .\n  ?TotalGibbsFreeEnergy a occ:TotalGibbsFreeEnergy .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-645",
+        "domain": "ontospecies",
+        "question": "Can you provide me with the data on vapor density, Henry's law constant and isoelectric point for COC(=O)C(C1CCCCN1)C2=CC=CC=C2, C14H18O4 and C19H28O2?",
+        "query": {
+            "sparql": "SELECT ?VaporDensity ?HenrysLawConstant ?IsoelectricPoint WHERE {\n  VALUES ?Species { \"COC(=O)C(C1CCCCN1)C2=CC=CC=C2\" \"C14H18O4\" \"C19H28O2\" }\n  ?Species os:hasVaporDensity ?VaporDensity .\n  ?Species os:hasHenrysLawConstant ?HenrysLawConstant .\n  ?Species os:hasIsoelectricPoint ?IsoelectricPoint .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-464",
+        "domain": "ontokin",
+        "question": "www.osti.gov/servlets/purl/90098-26Ev73/webviewable/ discusses a certain chemical reaction in a mechanism, what's the detail on that?",
+        "query": {
+            "sparql": "SELECT ?Reaction WHERE {\n  ?Reaction ^okin:hasReaction ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"www.osti.gov/servlets/purl/90098-26Ev73/webviewable/\" .\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-150",
+        "domain": "ontokin",
+        "question": "Explain the kinetics of a reaction that yields OH and H2O",
+        "query": {
+            "sparql": "SELECT ?KineticModel WHERE {\n  ?Reaction ocape:hasProduct/skos:altLabel \"OH\" .\n  ?Reaction ocape:hasProduct/skos:altLabel \"H2O\" .\n  ?Reaction okin:hasKineticModel ?KineticModel .\n}"
+        }
+    },
+    {
+        "id": "ontocompchem_2023-11-29_09.40.43_test_ID-162",
+        "domain": "ontocompchem",
+        "question": "Can you find the frequency and energy levels of the lowest unoccupied molecular orbital for N2 based on RB3LYP level calculations with the CC-pVDZ basis set?",
+        "query": {
+            "sparql": "SELECT ?Frequencies ?LUMOEnergy WHERE {\n  ?MolecularComputation occ:hasSpeciesModel/occ:hasSpecies/rdfs:label \"N2\" .\n  ?MolecularComputation occ:hasMethodology/occ:hasLevelOfTheory/rdfs:label ?LevelOfTheoryLabel .\n  VALUES ?LevelOfTheoryLabel { \"RB3LYP\" }\n  ?MolecularComputation occ:hasMethodology/occ:hasBasisSet/rdfs:label ?BasisSetLabel .\n  VALUES ?BasisSetLabel { \"CC-pVDZ\" }\n  ?MolecularComputation occ:hasResult ?Frequencies .\n  ?Frequencies a occ:Frequencies .\n  ?MolecularComputation occ:hasResult ?LUMOEnergy .\n  ?LUMOEnergy a occ:LUMOEnergy .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-859",
+        "domain": "ontospecies",
+        "question": "I'm looking for molecular entity class chemicals that have a bond stereocenter count greater than -1 but less than 1.0.",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasBondChiralCount/os:value ?BondChiralCountValue .\n  FILTER ( ?BondChiralCountValue > -1 && ?BondChiralCountValue < 1.0 )\n  ?Species os:hasChemicalClass/rdfs:label \"molecular entity\" .\n}"
+        }
+    },
+    {
+        "id": "ontospecies_2023-11-09_15.17.52_test_ID-568",
+        "domain": "ontospecies",
+        "question": "Which chemicals are identified as a chalcogen molecular entity, belong to the ester category, and have a bond chiral def count near zero?",
+        "query": {
+            "sparql": "SELECT ?Species WHERE {\n  ?Species os:hasChemicalClass/rdfs:label \"chalcogen molecular entity\" .\n  ?Species os:hasChemicalClass/rdfs:label \"ester\" .\n  ?Species os:hasBondChiralDefCount/os:value ?BondChiralDefCountValue .\n  FILTER ( ?BondChiralDefCountValue > -0.1 && ?BondChiralDefCountValue < 0.1 )\n}"
+        }
+    },
+    {
+        "id": "ontokin_2023-11-29_10.08.01_test_ID-388",
+        "domain": "ontokin",
+        "question": "How many chemical reaction that is involved in the mechanism found in https://doi.org/10.1016/j.combustflame.2007.10.024 and has reactant OH and has product H2O2",
+        "query": {
+            "sparql": "SELECT (COUNT(?Reaction) AS ?ReactionCount) WHERE {\n  ?Reaction ^okin:hasReaction ?Mechanism .\n  ?Mechanism okin:hasProvenance/oprvn:hasDOI \"https://doi.org/10.1016/j.combustflame.2007.10.024\" .\n  ?Reaction ocape:hasReactant/skos:altLabel \"OH\" .\n  ?Reaction ocape:hasProduct/skos:altLabel \"H2O2\" .\n}"
+        }
+    }
+]
